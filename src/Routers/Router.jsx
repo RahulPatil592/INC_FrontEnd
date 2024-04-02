@@ -1,0 +1,24 @@
+import { createBrowserRouter, Route, createRoutesFromElements } from 'react-router-dom';
+import Layout from '../Layout.jsx';
+import Login from '../Pages/Login.jsx';
+import Register from '../Pages/Register.jsx';
+import About from '../Pages/About.jsx';
+import Home from '../Pages/Home.jsx';
+import Create from '../Pages/Create.jsx'
+
+const router=createBrowserRouter(
+    createRoutesFromElements(
+        <Route>
+            <Route path='login' element={<Login/>}/>
+
+            <Route path='register' element={<Register/>}/>
+
+            <Route path='/' element={<Layout/>}>
+            <Route path='' element={<Home/>}/>
+            <Route path='create' element={<Create/>}/>
+            <Route path='about' element={<About/>}/>
+            </Route>
+        </Route>
+    )
+)
+export default router;
