@@ -5,6 +5,7 @@ import Register from '../Pages/Register.jsx';
 import About from '../Pages/About.jsx';
 import Home from '../Pages/Home.jsx';
 import Create from '../Pages/Create.jsx'
+import User from '../Pages/User.jsx';
 
 const router=createBrowserRouter(
     createRoutesFromElements(
@@ -17,6 +18,7 @@ const router=createBrowserRouter(
             <Route path='' element={<Home/>}/>
             <Route path='create' element={<Create/>}/>
             <Route path='about' element={<About/>}/>
+            <Route path='user' element={<User/>}/>
             </Route>
         </Route>
     )

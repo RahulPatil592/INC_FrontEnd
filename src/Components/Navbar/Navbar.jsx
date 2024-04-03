@@ -36,11 +36,15 @@ const Navbar = () => {
                 !loggedIn &&
                 <div id='nav_d4'>
 
-                    <Link className='l1'>
+                    <Link 
+                    to='/login'
+                    className='l1'>
                         Log In
                     </Link>
 
-                    <Link className='l2'>
+                    <Link 
+                    to='/register'
+                    className='l2'>
                         <div>
                             Sign Up
                         </div>
