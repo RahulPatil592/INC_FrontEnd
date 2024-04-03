@@ -17,11 +17,11 @@ const Login = () => {
           </div>
           <div className='inpts btn1'>
             <button>
-              Sing In
+              Sign In
             </button>
             <p id='signupop'>
               Don’t have an account?&nbsp;
-              <Link to='/register' className='sgnlink'>Sing Up</Link>
+              <Link to='/register' className='sgnlink'>Sign Up</Link>
             </p>
           </div>
           OR

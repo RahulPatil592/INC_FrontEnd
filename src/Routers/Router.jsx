@@ -7,18 +7,20 @@ import Home from '../Pages/Home.jsx';
 import Create from '../Pages/Create.jsx'
 import User from '../Pages/User.jsx';
 
-const router=createBrowserRouter(
+const router = createBrowserRouter(
+
     createRoutesFromElements(
+        
         <Route>
-            <Route path='login' element={<Login/>}/>
+            <Route path='login' element={<Login />} />
 
-            <Route path='register' element={<Register/>}/>
+            <Route path='register' element={<Register />} />
 
-            <Route path='/' element={<Layout/>}>
-            <Route path='' element={<Home/>}/>
-            <Route path='create' element={<Create/>}/>
-            <Route path='about' element={<About/>}/>
-            <Route path='user' element={<User/>}/>
+            <Route path='/' element={<Layout />}>
+                <Route path='' element={<Home />} />
+                <Route path='create' element={<Create />} />
+                <Route path='about' element={<About />} />
+                <Route path='user' element={<User />} />
             </Route>
         </Route>
     )
