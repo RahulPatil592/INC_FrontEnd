@@ -21,10 +21,12 @@ const router = createBrowserRouter(
 
             <Route path='/' element={<Layout />}>
                 <Route path='' element={<Home />} />
+
                 <Route path='create'>
                     <Route path='' element={<Create/>}/>
                     <Route path='ip' element={<CreateIP/>}/>
                     <Route path='will' element={<CreateWill/>}/>
+                    
                 </Route>
                 <Route path='verify' element={<Verify/>}/>
                 <Route path='about' element={<About />} />

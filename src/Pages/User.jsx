@@ -10,6 +10,7 @@ import Modal from '../Components/Modal/Modal.jsx'
 const User = () => {
     const [showModal, setModal] = useState(false);
     const [modalData, setModalData] = useState(null)
+    const [isverified, setIsVerified] = useState(false);
 
     return (
         <>
@@ -53,7 +54,9 @@ const User = () => {
                             <img src={vrimg} alt="" />
                         </div>
                         <div className='aanv_btndiv'>
-                            <Link className='aanv_btn'>
+                            <Link
+                                to='/verify'
+                                className='aanv_btn'>
                                 Verify Doc
                             </Link>
                         </div>
@@ -97,7 +100,7 @@ const User = () => {
             </section>
             {
                 showModal &&
-                <Modal modalData={modalData} setModal={setModal} />
+                <Modal modalData={modalData} setModal={setModal} isverified={isverified} setIsVerified={setIsVerified} />
             }
 
         </>

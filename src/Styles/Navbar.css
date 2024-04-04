@@ -53,3 +53,21 @@
     font-weight: 500;
     color: var(--color-nav-bg);
 }
+
+#nav_d3{
+    width: 3.3vmax;
+    height: 3.3vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vmax;
+    font-weight: 400;
+    font-size: 1.1vmax;
+    background-color: var(--color-ternary);
+    border-radius: 500px;
+}
+
+
+#nav_d3 img{
+    width: 45%;
+}

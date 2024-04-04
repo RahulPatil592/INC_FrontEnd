@@ -7,8 +7,8 @@ const CreateIP = () => {
   const [valid, setValid] = useState(true);
   const [addhar, setAadhar] = useState('');
   const [digsign, setDigSign] = useState('');
-  const [formData,setFormData]=useState(null);
-
+  // const [formData,setFormData]=useState(null);
+ setValid(true);
   return (
     <section id='create_ip_sec'>
       <p id='create_ip_title'>Create IP</p>
@@ -80,7 +80,7 @@ const CreateIP = () => {
           <input type="checkbox" name='tanc_chk' />
           &nbsp;
           I acknowledge that I own the rights to the submitted document and
-          agree to the <a id='tc_text'>terms and conditions.</a>
+          agree to the <a href='https://www.w3schools.com'id='tc_text'>terms and conditions.</a>
         </p>
         {
           !valid &&

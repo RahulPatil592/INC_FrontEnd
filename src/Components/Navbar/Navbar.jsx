@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import "../../Styles/Navbar.css"
+import userimg from '../../assets/userSVG.svg'
 
 const Navbar = () => {
-    const loggedIn = false;
-
+    const [userLoggedIn,setUserLoggedIn]=useState(false);
+    
     return (
         <div id='nav_sec'>
             <div id='nav_d1'>
-                <p>UnchainedIP</p>
+                <p onClick={()=>{
+                    setUserLoggedIn(!userLoggedIn)
+                }}>UnchainedIP</p>
             </div>
             <div id='nav_d2'>
                 <ul>
@@ -27,13 +30,16 @@ const Navbar = () => {
                 </ul>
             </div>
             {
-                loggedIn &&
-                <div id='nav_d3'>
-
-                </div>
+                
+                !userLoggedIn &&
+                <Link 
+                to='/user'
+                id='nav_d3'>
+                  <img src={userimg} alt="" />
+                </Link>
             }
             {
-                !loggedIn &&
+                userLoggedIn &&
                 <div id='nav_d4'>
 
                     <Link 

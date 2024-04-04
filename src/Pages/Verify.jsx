@@ -7,11 +7,15 @@ const Verify = () => {
     const [showModal, setModal] = useState(false);
     const [modalData, setModalData] = useState(null)
     const [valid,setValid]=useState(true);
-
+    const [isverified,setIsVerified]=useState(false);
+    
     const validSubmit=(event)=>{
         event.preventDefault()
         const docid=event.target.docid.value;
         //validate docid
+        //set isverified
+        setIsVerified(true)
+        console.log(docid)
         if(docid===""){
             setValid(false)
         }
@@ -55,7 +59,7 @@ const Verify = () => {
     </section>
     {
                 showModal &&
-                <Modal modalData={modalData} setModal={setModal} />
+                <Modal modalData={modalData} setModal={setModal} isverified={isverified} setIsVerified={setIsVerified}/>
             }
     </>
     

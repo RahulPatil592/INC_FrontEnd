@@ -79,12 +79,11 @@ const Home = () => {
                                     <div className='fl3'>
                                         <div className='btn1 btn'>
                                             <Link
-                                                to='/create'
+                                                to={`/create/${index === 0 ? 'ip' : 'will'}`}
                                                 className='linktored'>
                                                 Create
                                                 <img src={arrowimg} alt="" />
                                             </Link>
-
                                         </div>
 
                                         <div className='btn2 btn'>

@@ -105,7 +105,7 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                         <div className="kb-attach-box">
                             {
                                 selectedfile.map((data, index) => {
-                                    const { id, filename, filetype, fileimage, datetime, filesize } = data;
+                                    const { id, filename, fileimage, datetime, filesize } = data;
                                     return (
                                         <div className="file-atc-box" key={id}>
                                             {
@@ -135,7 +135,7 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                                 <hr />
                                 {
                                     Files.map((data, index) => {
-                                        const { id, filename, filetype, fileimage, datetime, filesize } = data;
+                                        const { id, filename, fileimage, datetime, filesize } = data;
                                         return (
                                             <div className="file-atc-box" key={index}>
                                                 {

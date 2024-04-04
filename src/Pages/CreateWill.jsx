@@ -7,7 +7,7 @@ import DragAndDrop from '../Components/DragAndDrop/DragAndDrop'
 const CreateWill = () => {
   const [selectedfile, SetSelectedFile] = useState([])
   const [valid, setValid] = useState(true);
-
+  setValid(true);
   const [exdigsign, setexDigSign] = useState('');
 
   const [tesdigsign, settesDigSign] = useState('');
@@ -91,7 +91,7 @@ const CreateWill = () => {
           <input type="checkbox" name='tanc_chk' />
           &nbsp;
           I acknowledge that I own the rights to the submitted document and
-          agree to the <a id='tc_text'>terms and conditions.</a>
+          agree to the <a href='https://www.w3schools.com' id='tc_text'>terms and conditions.</a>
         </p>
         {
           !valid &&
