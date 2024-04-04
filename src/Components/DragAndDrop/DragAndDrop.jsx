@@ -104,12 +104,12 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                         </div>
                         <div className="kb-attach-box">
                             {
-                                selectedfile.map((data, index) => {
+                                selectedfile?.map((data, index) => {
                                     const { id, filename, fileimage, datetime, filesize } = data;
                                     return (
                                         <div className="file-atc-box" key={id}>
                                             {
-                                                filename.match(/.(jpg|jpeg|png|gif|svg)$/i) ?
+                                                filename?.match(/.(jpg|jpeg|png|gif|svg)$/i) ?
                                                     <div className="file-image"> <img src={fileimage} alt="" /></div> :
                                                     <div className="file-image"><i className="far fa-file-alt"></i></div>
                                             }

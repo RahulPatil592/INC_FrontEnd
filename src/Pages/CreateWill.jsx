@@ -7,7 +7,7 @@ import DragAndDrop from '../Components/DragAndDrop/DragAndDrop'
 const CreateWill = () => {
   const [selectedfile, SetSelectedFile] = useState([])
   const [valid, setValid] = useState(true);
-  setValid(true);
+  // setValid(true);
   const [exdigsign, setexDigSign] = useState('');
 
   const [tesdigsign, settesDigSign] = useState('');
@@ -15,10 +15,10 @@ const CreateWill = () => {
   const [witdigsign, setwitDigSign] = useState('');
 
   return (
-    <section id='create_ip_sec'>
+    <section id='create_ip_sec'>  
       <p id='create_ip_title'>Create Will</p>
-       <form action="">
-       <div id='owner_det_div'>
+      <form action="">
+        <div id='owner_det_div'>
           <p className='create_titles'>Executor Details</p>
           <div id='owner_det_inpt_div'>
             <div className='inps'>
@@ -84,7 +84,7 @@ const CreateWill = () => {
         </div>
         <div id='owner_det_div_cover'>
           <div id='owner_det_div'>
-          <DragAndDrop selectedfile={selectedfile} SetSelectedFile={SetSelectedFile} />
+            <DragAndDrop selectedfile={selectedfile} SetSelectedFile={SetSelectedFile} />
           </div>
         </div>
         <p id='agree_chk_div'>
@@ -102,10 +102,10 @@ const CreateWill = () => {
         <p id='createip_btns_div'>
           <button className='sbt_btn'>Submit</button>
         </p>
-       </form>
+      </form>
     </section>
 
-    
+
   )
 }
 
