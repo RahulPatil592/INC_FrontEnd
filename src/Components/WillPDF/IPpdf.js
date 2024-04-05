@@ -38,44 +38,48 @@ const IPstyles = StyleSheet.create(
         fontSize: 12,
       },
       v7:{
-        flexDirection: "row",
-        justifyContent:"space-between",
+        flexDirection: "column",
+        alignItems:"baseline",
+        gap:10,
         fontSize: 10,
       },
 
     }
   )
 
-const PDFDocumentIP = (props) => (
+const PDFDocumentIP = ({data}) => (
     <Document>
       <Page size="A4" style={IPstyles.page}>
         <View style={IPstyles.v1}>
-          <Text>Name : Rahul Patil</Text>
-          <Link>View Digital Sign</Link>
-          <Text>Aadhar No. : 12387432598</Text>
+          <Text>Name : {data.newOwnerName}</Text>
+          <Link href={data.newOwnerDigitalSign}>View Digital Sign</Link>
+          <Text>Aadhar No. : {data.newOwnerProofIdentifier}</Text>
         </View>
         <View style={IPstyles.v2}>
-          <Text>Title : This is the title of the IP</Text>
+          <Text>Title : {data.newTitle}</Text>
 
         </View>
         <View style={IPstyles.v3}>
-            <Text>Block Id: 48729573495sdfk</Text>
-              <Text>Transaction Hash : 12387432598</Text>
+            <Text>Block Id: {data.blockId}</Text>
+              <Text>Transaction Hash : {data.transactionHash}</Text>
         </View>
         <View style={IPstyles.v4}>
-        <Text>Contract Id: 48729573495sdfk</Text>
-              <Text>Document Hash : 12387432598</Text>
+        <Text>Contract Id: {data.contractId}</Text>
+              <Text>Document Id : {data.documentId}</Text>
         </View>
         <View style={IPstyles.v5}>
           <Text>Type : IP</Text>
         </View>
         <View style={IPstyles.v6}>
           <Text>Description</Text>
-          <Text>dfjkdsnaf.dkn.afdsnsadfknsdf</Text>
+          <Text>{data.newDescription}</Text>
         </View>
         <View style={IPstyles.v7}>
-          <Link>Link1</Link>
-          <Link>Link2</Link>
+            {
+                data.proofs.map((link,index)=>{
+                    <Link key={index}>{link}</Link>
+                })
+            }
         </View>
       </Page>
     </Document>

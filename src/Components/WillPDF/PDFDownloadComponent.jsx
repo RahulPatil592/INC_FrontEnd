@@ -1,6 +1,7 @@
 import React from 'react';
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
 import PDFDocumentIP from './IPpdf.js';
+import PDFDocumentWill from './Willpdf.js'
 // Define styles for the PDF document
 
 const styles = StyleSheet.create({
@@ -197,7 +198,8 @@ const PDFDocument = (props) => (
 const PDFDownloadComponent = ({ data }) => (
   <div className='mdbtn mdbtn1'>
     <PDFDownloadLink document={
-    <PDFDocumentIP data={data} />}
+      data.type==='ip'?
+    <PDFDocumentIP data={data} />:<PDFDocumentWill data={data} />}
      fileName="document.pdf" className='pdfdwmlnk_ip'>
       {({ blob, url, loading, error }) =>
         loading ? 'Loading document...' : 'Download PDF'

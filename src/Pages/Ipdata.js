@@ -1,47 +1,133 @@
-export const Ips1=[]
+
 export const Ips=
 [
     {
-        title:"Title of IP1",
-        blockId:"ScbnlbSIDNcgO*&GDC8ygv8sd8g",
-        type:"type1will",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.",
-
-    },
-    {
-        title:"Title of IP2",
-        blockId:"ScbnlbSIDNcgO*&GDC8ygv8sd8g",
-        type:"ip",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.",
-
-    },
-    {
-        title:"Title of IP3",
-        blockId:"ScbnlbSIDNcgO*&GDC8ygv8sd8g",
+        newExecutorName:"Rahul Patil",
+        newExecutorDigitalSign:"https://google.com",
+        newExecutorIdProof :"214987324923",
+        
+        newTestatorName:"Rahul Patil",
+        newTestatorDigitalSign:"https://google.com",
+        newTestatorIdProof :"214987324923",
+    
+        newWitnessName:"Rahul Patil",
+        newWitnessDigitalSign:"https://google.com",
+        newWitnessIdProof :"214987324923",
+    
+        proofs:["https://google.com","https://google.com","https://google.com"],
+        newIpType:"Will",
+    
+        blockId:"4923487",
+        transactionHash:"kns#$@%$@#",
+        contractId:"874327yiwef",
+        documentId:"f8y7fwhisdf",
+        
         type:"will",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.",
-
+    
+        newTitle:"This is the will title",
+        newDescription:"this is the desc for will",
     },
     {
-        title:"Title of IP4",
-        blockId:"ScbnlbSIDNcgO*&GDC8ygv8sd8g",
-        type:"ip",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.",
-
-    },
-    {
-        title:"Title of IP5",
-        blockId:"ScbnlbSIDNcgO*&GDC8ygv8sd8g",
-        type:"dsf",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.",
-
-    },
-    {
-        title:"Title of IP6",
-        blockId:"ScbnlbSIDNcgO*&GDC8ygv8sd8g",
+        newExecutorName:"Rahul Patil",
+        newExecutorDigitalSign:"https://google.com",
+        newExecutorIdProof :"214987324923",
+        
+        newTestatorName:"Rahul Patil",
+        newTestatorDigitalSign:"https://google.com",
+        newTestatorIdProof :"214987324923",
+    
+        newWitnessName:"Rahul Patil",
+        newWitnessDigitalSign:"https://google.com",
+        newWitnessIdProof :"214987324923",
+    
+        proofs:["https://google.com","https://google.com","https://google.com"],
+        newIpType:"Will",
+    
+        blockId:"4923487",
+        transactionHash:"kns#$@%$@#",
+        contractId:"874327yiwef",
+        documentId:"f8y7fwhisdf",
+        
         type:"will",
-        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Viverra suspendisse potenti nullam ac tortor. Sagittis id consectetur purus ut faucibus pulvinar.",
-
+    
+        newTitle:"This is the will title",
+        newDescription:"this is the desc for will",
     },
+    {
+        newExecutorName:"Rahul Patil",
+        newExecutorDigitalSign:"https://google.com",
+        newExecutorIdProof :"214987324923",
+        
+        newTestatorName:"Rahul Patil",
+        newTestatorDigitalSign:"https://google.com",
+        newTestatorIdProof :"214987324923",
+    
+        newWitnessName:"Rahul Patil",
+        newWitnessDigitalSign:"https://google.com",
+        newWitnessIdProof :"214987324923",
+    
+        proofs:["https://google.com","https://google.com","https://google.com"],
+        newIpType:"Will",
+    
+        blockId:"4923487",
+        transactionHash:"kns#$@%$@#",
+        contractId:"874327yiwef",
+        documentId:"f8y7fwhisdf",
+        
+        type:"will",
+    
+        newTitle:"This is the will title",
+        newDescription:"this is the desc for will",
+    },
+    {
+        newOwnerName:"Rahul Patil",
+        newOwnerDigitalSign:"https://google.com",
+        newOwnerProofIdentifier :"214987324923",
+        proofs:["https://google.com","https://google.com","https://google.com"],
+        newTitle:"This is the title",
+        newIpType:"IP",
+        newDescription:"Description ",
+        stnewLinks:"https://google.com",
+        blockId:"4923487",
+        transactionHash:"kns#$@%$@#",
+        contractId:"874327yiwef",
+        documentId:"f8y7fwhisdf",
+        newDescription:"This is the desctiption",
+        type:"ip",
+    },
+    {
+        newOwnerName:"Rahul Patil",
+        newOwnerDigitalSign:"https://google.com",
+        newOwnerProofIdentifier :"214987324923",
+        proofs:["https://google.com","https://google.com","https://google.com"],
+        newTitle:"This is the title",
+        newIpType:"IP",
+        newDescription:"Description ",
+        stnewLinks:"https://google.com",
+        blockId:"4923487",
+        transactionHash:"kns#$@%$@#",
+        contractId:"874327yiwef",
+        documentId:"f8y7fwhisdf",
+        newDescription:"This is the desctiption",
+        type:"ip",
+    },
+    {
+        newOwnerName:"Rahul Patil",
+        newOwnerDigitalSign:"https://google.com",
+        newOwnerProofIdentifier :"214987324923",
+        proofs:["https://google.com","https://google.com","https://google.com"],
+        newTitle:"This is the title",
+        newIpType:"IP",
+        newDescription:"Description ",
+        stnewLinks:"https://google.com",
+        blockId:"4923487",
+        transactionHash:"kns#$@%$@#",
+        contractId:"874327yiwef",
+        documentId:"f8y7fwhisdf",
+        newDescription:"This is the desctiption",
+        type:"ip",
+    }
+
+    
 
 ]

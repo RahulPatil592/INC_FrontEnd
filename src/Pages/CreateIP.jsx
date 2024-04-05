@@ -25,7 +25,7 @@ const CreateIP = () => {
     for (let i = 0; i < selectedfile.length; i++) {
       itemFormData.append('docs[]', JSON.stringify(selectedfile[i]));
     }
-
+    
     // itemFormData("newOwnerProofType", e.target.newOwnerProofType.value);
     itemFormData.append("newOwnerProofIdentifier", e.target.newOwnerProofIdentifier.value);
     itemFormData.append("newTitle", e.target.newTitle.value);

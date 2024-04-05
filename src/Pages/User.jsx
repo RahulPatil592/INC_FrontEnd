@@ -73,7 +73,7 @@ const User = () => {
                         Ips.map((ip, index) => {
                             return (
                                 <div className='ip_div' key={index}>
-                                    <p className='ip_title'>{ip.title}</p>
+                                    <p className='ip_title'>{ip.newTitle}</p>
                                     <p className='ip_id'>{ip.blockId}</p>
                                     <p className='ip_vmore'>
                                         <button

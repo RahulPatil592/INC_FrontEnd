@@ -2,6 +2,7 @@ import React from 'react'
 import '../Styles/Verify.css';
 import Modal from '../Components/Modal/Modal';
 import { useState } from 'react';
+import { Ips } from './Ipdata';
 
 const Verify = () => {
     const [showModal, setModal] = useState(false);
@@ -24,12 +25,7 @@ const Verify = () => {
             setModal(true);
         }   
        
-        setModalData({
-            title:"title",
-            blockId:"fasjdkfn",
-            description:"dsfsdsg",
-            type:"will",
-        })
+        setModalData(Ips[0])
     }
 
   return (
