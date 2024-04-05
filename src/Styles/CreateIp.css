@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: baseline;
-    padding: 5vmax 0;
+    padding: 7vmax 0 5vmax 0;
     gap: 1vmax;
 }
 

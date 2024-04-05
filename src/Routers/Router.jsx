@@ -1,4 +1,4 @@
-import { createBrowserRouter, Route, createRoutesFromElements } from 'react-router-dom';
+import { createBrowserRouter, Route, createRoutesFromElements} from 'react-router-dom';
 import Layout from '../Layout.jsx';
 import Login from '../Pages/Login.jsx';
 import Register from '../Pages/Register.jsx';
@@ -26,12 +26,12 @@ const router = createBrowserRouter(
                     <Route path='' element={<Create/>}/>
                     <Route path='ip' element={<CreateIP/>}/>
                     <Route path='will' element={<CreateWill/>}/>
-                    
                 </Route>
                 <Route path='verify' element={<Verify/>}/>
                 <Route path='about' element={<About />} />
                 <Route path='user' element={<User />} />
             </Route>
+           
         </Route>
     )
 )

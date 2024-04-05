@@ -3,6 +3,7 @@ import '../Styles/CreateIp.css'
 import uploadimg from '../assets/uploadSVG.svg'
 import DragAndDrop from '../Components/DragAndDrop/DragAndDrop'
 import axios from 'axios'
+import { ScrollRestoration } from 'react-router-dom'
 const CreateIP = () => {
   const [selectedfile, SetSelectedFile] = useState([])
   const [valid, setValid] = useState(true);
@@ -28,7 +29,7 @@ const CreateIP = () => {
     itemFormData.append("stnewLinks", e.target.stnewLinks.value);
     itemFormData.append("newLicenseType", e.target.newLicenseType.value);
     itemFormData.append("termsChecked", e.target.termsChecked.value);
-    itemFormData.append("newExtrainfo", e.target.newExtrainfo.value);
+    itemFormData.append("newExtraInfo", e.target.newExtrainfo.value);
 
 
     const axiosConfig = {
@@ -46,6 +47,8 @@ const CreateIP = () => {
         console.log(err);
       })
     e.target.reset();
+    SetSelectedFile([])
+    
   }
   //  setValid(true);
   return (
@@ -67,6 +70,7 @@ const CreateIP = () => {
                 digsign.length === 0 &&
                 ` Upload Digital Sign`
               }
+
               <input type="file" name='newOwnerDigitalSign' onChange={(e) => { setDigSign(e.target.value) }} />
               <img src={uploadimg} alt="" />
             </div>
@@ -134,6 +138,7 @@ const CreateIP = () => {
           <button className='sbt_btn' >Submit</button>
         </p>
       </form>
+      <ScrollRestoration/>
     </section>
   )
 }

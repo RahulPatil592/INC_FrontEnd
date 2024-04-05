@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Styles/About.css'
 import teamimg from '../assets/TeamSVG.svg'
+import { ScrollRestoration } from 'react-router-dom'
 
 const About = () => {
   return (
@@ -32,6 +33,7 @@ const About = () => {
       </p>
       <a href="http://google.com">Feedback</a>
     </p>
+    <ScrollRestoration/>
     </section>
   )
 }
