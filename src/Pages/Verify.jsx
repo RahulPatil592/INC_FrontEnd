@@ -3,6 +3,8 @@ import '../Styles/Verify.css';
 import Modal from '../Components/Modal/Modal';
 import { useState } from 'react';
 import axios from 'axios';
+import { Ips } from './Ipdata';
+
 const Verify = () => {
     const [showModal, setModal] = useState(false);
     const [modalData, setModalData] = useState(null)
@@ -31,6 +33,7 @@ const Verify = () => {
         }   
        
        (result)?setModalData(result):setValid(false);
+        setModalData(Ips[0])
     }
 
   return (

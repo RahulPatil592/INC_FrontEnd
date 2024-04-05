@@ -1,7 +1,10 @@
 import React from 'react'
 import '../../Styles/Modal.css';
 import closeimg from '../../assets/closeSVG.svg'
-import PDFDownloadComponent from '../../Components/WillPDF/PDFDownloadComponent.jsx'
+import PDFDownloadComponent from '../../Components/WillPDF/PDFDownloadComponent.jsx';
+import IPpdfData from '../../IPpdfData.js';
+import WillpdfData from '../../WillpdfData.js';
+
 const Modal = ({ modalData, setModal,isverified ,setIsVerified}) => {
     return (
         <section id='modal_sec'>
@@ -18,18 +21,18 @@ const Modal = ({ modalData, setModal,isverified ,setIsVerified}) => {
                     isverified &&
                     <p className='isverified_div'>Verified Document</p>
                 }
-                <p className='modal_title'>{modalData.title}</p>
+                <p className='modal_title'>{modalData.newTitle}</p>
                 <p className='modal_id'>Block ID: <span className='modal_mnid'>{modalData.blockId}</span></p>
                 <p className='modal_type'>Type : <span className='modal_mntype'>{modalData.type}</span></p>
                 <p className='modal_desc_title'>
                     Description<br />
-                    <p className='modal_desc'>{modalData.description}</p>
+                    <p className='modal_desc'>{modalData.newDescription}</p>
                 </p>
 
                 <p className='modal_btns'>
                     <button className='mdbtn'>View Document</button>
                     {/* <button className='mdbtn'> */}
-<PDFDownloadComponent data={{name:"rahul",digitalSignLink:"ewewrw",aadharNo:"232132"}} />
+<PDFDownloadComponent data={modalData} />
                     
                 </p>
             </div>
