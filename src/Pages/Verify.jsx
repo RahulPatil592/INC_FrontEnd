@@ -10,7 +10,7 @@ const Verify = () => {
   const [modalData, setModalData] = useState(null)
   const [valid, setValid] = useState(true);
   const [isverified, setIsVerified] = useState(false);
-
+  // let modalData;
   const validSubmit = async (event) => {
     event.preventDefault()
     const docid = event.target.docid.value;
@@ -18,19 +18,32 @@ const Verify = () => {
 
     //validate docid
     //set isverified
-
-    const result = await axios.get(`/user/read${event.target.doctype}?id=${docid}`)
-    .then((res) => {
+  
+    const res=await axios.get(`/user/read${event.target.doctype.value}?id=${docid}`)
+    // .then((res) => {
+      
+      // modalData=data;
      
-  })
-  .catch(() => {
-    setValid(false)
-      alert('something went wrong')
-  })
+      // console.log("data",res.data.record)
+      if(res){
+        const data=res.data.record;
+        setModalData(data)
+        console.log("veridata",modalData)
+      }
+      else{
+        setValid(false)
+      }
+      console.log("modaldata",modalData)
+  // })
+  // .catch(() => {
+  //   setValid(false)
+  //     alert('something went wrong')
+  // })
+  // console.log("modaldata",modalData)
 
 
     // # TODO : data is in result object 
-    console.log(result);
+    // console.log(result);
 
     if (docid === "") {
       setValid(false)
@@ -40,10 +53,10 @@ const Verify = () => {
       setModal(true);
     }
 
-    (result) ? setModalData(result) : setValid(false);
-    setModalData(Ips[0])
+    // (result) ? setModalData(result) : setValid(false);
+    // setModalData(Ips[0])
   }
-
+  console.log("modaldata",modalData)
   return (
     <>
       <section id='verify_sec'>
@@ -73,8 +86,8 @@ const Verify = () => {
         </div>
       </section>
       {
-        showModal &&
-        <Modal modalData={modalData} setModal={setModal} isverified={isverified} setIsVerified={setIsVerified} />
+        modalData &&
+        <Modal modalData={modalData} setModal={setModal} isverified={true} setIsVerified={setIsVerified} />
       }
     </>
 

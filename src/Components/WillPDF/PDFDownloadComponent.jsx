@@ -7,6 +7,9 @@ import PDFDocumentWill from './Willpdf.js'
 // Define the component that handles PDF download
 const PDFDownloadComponent = ({ data,type,blockId,trxnHash,documentId }) => (
   <div className='mdbtn mdbtn1'>
+  {
+    console.log(data)
+  }
     <PDFDownloadLink document={
       type==='ip'?
     <PDFDocumentIP data={data} blockId={blockId} trxnHash={trxnHash} documentId={documentId}/>:<PDFDocumentWill data={data} blockId={blockId} trxnHash={trxnHash} documentId={documentId}/>}

@@ -7,8 +7,9 @@ const IPstyles = StyleSheet.create(
         gap:30,
       },
       v1: {
-        flexDirection: "row",
-        justifyContent:"space-between",
+        flexDirection: "column",
+        alignItems:"baseline",
+        justifyContent:"flex-start",
         fontSize: 12,
         gap:10,
       },
@@ -74,7 +75,8 @@ const PDFDocumentIP = ({data,blockId,trxnHash,documentId}) => (
           <Text>{data.description}</Text>
         </View>
         <View style={IPstyles.v7}>
-        <Link >{`https://ipfs.io/ipfs/${data.proofs[0]}`}</Link>
+           {/* {data} */}
+        {/* <Text >{`https://ipfs.io/ipfs/${data.proofs[0]}`}</Text> */}
         </View>
       </Page>
     </Document>

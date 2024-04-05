@@ -26,7 +26,7 @@ const CreateIP = () => {
       itemFormData.append('docs', selectedfile[i] );
     }
 
-    // itemFormData("newOwnerProofType", e.target.newOwnerProofType.value);
+    itemFormData.append("newOwnerName", e.target.newOwnerName.value);
     itemFormData.append("newOwnerProofIdentifier", e.target.newOwnerProofIdentifier.value);
     itemFormData.append("newTitle", e.target.newTitle.value);
     itemFormData.append("newIpType", e.target.newIpType.value);

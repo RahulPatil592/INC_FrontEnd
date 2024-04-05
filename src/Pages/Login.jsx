@@ -14,9 +14,7 @@ const Login = () => {
           email:e.target.email.value,
           password:e.target.password.value
     };
-    
    
-    
     let axiosConfig = {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
@@ -27,10 +25,10 @@ const Login = () => {
 
     let status = 200;
 
-  
-    await axios
+    axios
       .post("/user/login", data , axiosConfig)
       .then((dat) => {
+          console.log(dat)
         
       })
       .catch((err) => {
