@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import gglimg from '../assets/googleSVG.svg'
 import '../Styles/Register.css'
 import axios from 'axios';
 import {  useNavigate } from "react-router-dom";
@@ -8,11 +7,16 @@ const Register = () => {
 
   const nevigate = useNavigate();
   
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+
+   e.preventDefault();
+    const data={
+        name:e.target.name.value,
+        email:e.target.email.value,
+        phone:e.target.phone.value,
+        password:e.target.password.value
+    }
    
-    // TODO : get used data in data object 
-    let data;
-    
     let axiosConfig = {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
@@ -22,9 +26,6 @@ const Register = () => {
    
 
     let status = 200;
-
-  
-    
     await axios
       .post("/user/register", data , axiosConfig)
       .then((dat) => {
@@ -34,13 +35,13 @@ const Register = () => {
         status = err.response.status;
       });
 
-    if (status == 200) {
-      //  TODO  dont know where to nevigate user after login 
-      nevigate("/main");
+    if (status === 200) {
+      nevigate("/");
     } else {
-      alert("register first");
-      // TODO check the router part 
-      nevigate("/register");
+      alert("Enter fields correctly")
+      // alert("register first");
+      // // TODO check the router part 
+      // nevigate("/signup");
     }
     
   };
@@ -56,7 +57,7 @@ const Register = () => {
         <div>UnchainedIP</div>
       </div>
       <div id='reg_form'>
-        <form>
+        <form action='' onSubmit={onSubmit}>
           <p id='form_title'>Sign Up</p>
           <div className='inpts'>
             <input type="text" name='name' placeholder='Full name' />
@@ -65,7 +66,7 @@ const Register = () => {
             <input type="email" name='email' placeholder='email id' />
           </div>
 
-          <div className='multi1'>
+          {/* <div className='multi1'>
             <div className='inpts'>
               <select name='nationallity'  >
                 <option value="0">Nationality</option>
@@ -81,16 +82,13 @@ const Register = () => {
                 <option value="2">Female</option>
               </select>
             </div>
-          </div>
+          </div> */}
 
 
           <div className='multi2'>
             <div className='inpts inp1'>
               <select name='ccode' id='s1' >
                 <option value="0">+91</option>
-                <option value="1">+10</option>
-                <option value="2">+20</option>
-                <option value="3">+30</option>
               </select>
             </div>
             <div className='inpts inp2'>
@@ -98,14 +96,14 @@ const Register = () => {
             </div>
           </div>
 
-          <div className='inpts'>
+          {/* <div className='inpts'>
             <select name='usefor' placeholder='password' >
               <option value="1">I seek to use the platform primarily for</option>
               <option value="2">For 1</option>
               <option value="3">For 2</option>
               <option value="4">For 3</option>
             </select>
-          </div>
+          </div> */}
           <div className='inpts'>
             <input type="password" name='password' placeholder='password' />
           </div>
@@ -116,20 +114,20 @@ const Register = () => {
 
           <div className='inpts btn1'>
             <button>
-              Sing In
+              Sign Up
             </button>
             <p id='signupop'>
               Already have an account?&nbsp;
-              <Link to='/login' className='sgnlink'>Sing In</Link>
+              <Link to='/login' className='sgnlink'>Sign In</Link>
             </p>
           </div>
 
-          <div className='inpts btn2'>
+          {/* <div className='inpts btn2'>
             <button>
               <img src={gglimg} alt="" />
               Sign In with Google
             </button>
-          </div>
+          </div> */}
         </form>
       </div>
 

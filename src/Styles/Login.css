@@ -72,6 +72,7 @@
     color: var(--color-gray);
 }
 #login_form .btn1 #signupop{
+    padding-top: 1vmax;
     font-size: 1vmax;
     font-weight: 400;
 }

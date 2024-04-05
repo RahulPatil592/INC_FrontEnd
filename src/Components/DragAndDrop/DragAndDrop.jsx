@@ -142,7 +142,7 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                         {/* </form> */}
                         {Files.length > 0 ?
                             <div className="kb-attach-box">
-                                <hr />
+                                <hr/>
                                 {
                                     Files.map((data, index) => {
                                         const { id, filename, fileimage, datetime, filesize } = data;

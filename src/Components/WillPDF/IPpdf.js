@@ -1,4 +1,4 @@
-import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
+import {Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
 const IPstyles = StyleSheet.create(
     {
       page:{
@@ -47,39 +47,34 @@ const IPstyles = StyleSheet.create(
     }
   )
 
-const PDFDocumentIP = ({data}) => (
+const PDFDocumentIP = ({data,blockId,trxnHash,documentId}) => (
     <Document>
       <Page size="A4" style={IPstyles.page}>
         <View style={IPstyles.v1}>
-          <Text>Name : {data.newOwnerName}</Text>
-          <Link href={data.newOwnerDigitalSign}>View Digital Sign</Link>
-          <Text>Aadhar No. : {data.newOwnerProofIdentifier}</Text>
+          <Text>Name : {data.ownerName}</Text>
+          <Text >{`https://ipfs.io/ipfs/${data.ownerDigitalSign}`}</Text>
+          <Text>Aadhar No. : {data.ownerProofIdentifier}</Text>
         </View>
         <View style={IPstyles.v2}>
-          <Text>Title : {data.newTitle}</Text>
+          <Text>Title : {data.title}</Text>
 
         </View>
         <View style={IPstyles.v3}>
-            <Text>Block Id: {data.blockId}</Text>
-              <Text>Transaction Hash : {data.transactionHash}</Text>
+            <Text>Block Id: {blockId}</Text>
+              <Text>Transaction Hash : {trxnHash}</Text>
         </View>
         <View style={IPstyles.v4}>
-        <Text>Contract Id: {data.contractId}</Text>
-              <Text>Document Id : {data.documentId}</Text>
+              <Text>Document Id : {documentId}</Text>
         </View>
         <View style={IPstyles.v5}>
           <Text>Type : IP</Text>
         </View>
         <View style={IPstyles.v6}>
           <Text>Description</Text>
-          <Text>{data.newDescription}</Text>
+          <Text>{data.description}</Text>
         </View>
         <View style={IPstyles.v7}>
-            {
-                data.proofs.map((link,index)=>{
-                    <Link key={index}>{link}</Link>
-                })
-            }
+        <Link >{`https://ipfs.io/ipfs/${data.proofs[0]}`}</Link>
         </View>
       </Page>
     </Document>
