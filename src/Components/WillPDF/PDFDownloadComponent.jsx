@@ -1,7 +1,8 @@
 import React from 'react';
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
-
+import PDFDocumentIP from './IPpdf.js';
 // Define styles for the PDF document
+
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
@@ -48,6 +49,8 @@ const styles = StyleSheet.create({
     fontSize: 12
   }
 });
+
+
 
 const PDFDocument = (props) => (
   <Document>
@@ -193,7 +196,9 @@ const PDFDocument = (props) => (
 // Define the component that handles PDF download
 const PDFDownloadComponent = ({ data }) => (
   <div className='mdbtn mdbtn1'>
-    <PDFDownloadLink document={<PDFDocument data={data} />} fileName="document.pdf" className='pdfdwmlnk_ip'>
+    <PDFDownloadLink document={
+    <PDFDocumentIP data={data} />}
+     fileName="document.pdf" className='pdfdwmlnk_ip'>
       {({ blob, url, loading, error }) =>
         loading ? 'Loading document...' : 'Download PDF'
       }

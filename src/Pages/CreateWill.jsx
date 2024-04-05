@@ -32,10 +32,19 @@ const CreateWill = () => {
 
   const submitIPForm = async (e) => {
     e.preventDefault();
-    SetSelectedFile(d => [...d, 
-    e.target.newExecutorDigitalSign.files[0],
-    e.target.newTestatorDigitalSign.files[0],
-    e.target.newWitnessDigitalSign.files[0]])
+    // SetSelectedFile(d => [...d, 
+    // e.target.newExecutorDigitalSign.files[0],
+    // e.target.newTestatorDigitalSign.files[0],
+    // e.target.newWitnessDigitalSign.files[0]])
+   
+    for (let i = 0; i < selectedfile.length; i++) {
+      itemFormData.append('docs[]', JSON.stringify(selectedfile[i]));
+    }
+
+    itemFormData.append('docs[]', JSON.stringify(e.target.newExecutorDigitalSign.files[0]));
+    itemFormData.append('docs[]', JSON.stringify(e.target.newTestatorName.files[0]));
+    itemFormData.append('docs[]', JSON.stringify(e.target.newWitnessName.files[0]));
+
 
     itemFormData.append("newExecutorName", e.target.newExecutorName.value);
     itemFormData.append("newExecutorIdProof", e.target.newExecutorIdProof.value);
@@ -50,7 +59,7 @@ const CreateWill = () => {
     // itemFormData.append("newWitnessDigitalSign", e.target.newWitnessDigitalSign.file);
 
     // itemFormData.append("newDocument", e.target.newDocument.value);
-    console.log("hello ", selectedfile,e.target.newExecutorName.value)
+    console.log("hello ", selectedfile, e.target.newExecutorName.value)
     const axiosConfig = {
       headers: {
         'Content-Type': "multipart/form-data",
@@ -65,7 +74,7 @@ const CreateWill = () => {
         alert("error")
         console.log(err);
       })
-      
+
     e.target.reset();
     SetSelectedFile([]);
   }
