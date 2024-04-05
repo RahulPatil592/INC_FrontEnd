@@ -2,20 +2,26 @@ import React from 'react'
 import '../Styles/Verify.css';
 import Modal from '../Components/Modal/Modal';
 import { useState } from 'react';
-
+import axios from 'axios';
 const Verify = () => {
     const [showModal, setModal] = useState(false);
     const [modalData, setModalData] = useState(null)
     const [valid,setValid]=useState(true);
     const [isverified,setIsVerified]=useState(false);
     
-    const validSubmit=(event)=>{
+    const validSubmit= async (event)=>{
         event.preventDefault()
         const docid=event.target.docid.value;
+        
+        
         //validate docid
         //set isverified
-        setIsVerified(true)
-        console.log(docid)
+
+       const result = await axios.get(`/user/readip?id=${docid}`);
+        
+      // # TODO : data is in result object 
+      console.log(result);
+     
         if(docid===""){
             setValid(false)
         }
@@ -24,12 +30,7 @@ const Verify = () => {
             setModal(true);
         }   
        
-        setModalData({
-            title:"title",
-            blockId:"fasjdkfn",
-            description:"dsfsdsg",
-            type:"will",
-        })
+       (result)?setModalData(result):setValid(false);
     }
 
   return (
@@ -60,7 +61,7 @@ const Verify = () => {
     {
                 showModal &&
                 <Modal modalData={modalData} setModal={setModal} isverified={isverified} setIsVerified={setIsVerified}/>
-            }
+    }
     </>
     
   )

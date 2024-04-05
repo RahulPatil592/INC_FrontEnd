@@ -7,10 +7,31 @@ import vrimg from '../assets/verifyImg.svg'
 import { Ips } from './Ipdata.js'
 import arrowimg from '../assets/arrowUpSVG.svg'
 import Modal from '../Components/Modal/Modal.jsx'
+import axios from 'axios'
+import {  useNavigate } from "react-router-dom";
+
+
 const User = () => {
     const [showModal, setModal] = useState(false);
     const [modalData, setModalData] = useState(null)
     const [isverified, setIsVerified] = useState(false);
+    const nevigate = useNavigate();
+    const getuser = ()=>{
+        axios.get('/user/getuser')
+       .then((res)=>{
+         
+          
+       })
+       .catch(()=>{
+          
+           alert("Please Login first");
+           nevigate('/login');
+           
+       })   
+   }
+   
+   //TODO : call get User function in useEffect hook 
+   // to get the logged in user data 
 
     return (
         <>

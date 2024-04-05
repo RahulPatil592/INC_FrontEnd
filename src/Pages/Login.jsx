@@ -2,7 +2,53 @@ import React from 'react'
 import '../Styles/Login.css'
 import { Link } from 'react-router-dom'
 import gglimg from '../assets/googleSVG.svg'
+import axios from 'axios'
+import {  useNavigate } from "react-router-dom";
 const Login = () => {
+
+
+  const nevigate = useNavigate();
+  const onSubmit = async () => {
+   
+    // TODO : get used data in data object 
+    let data;
+    
+    let axiosConfig = {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+      }
+    };
+   
+
+    let status = 200;
+
+  
+    
+    await axios
+      .post("/user/login", data , axiosConfig)
+      .then((dat) => {
+       
+      })
+      .catch((err) => {
+        status = err.response.status;
+      });
+
+    if (status == 200) {
+      // dont know where to nevigate user after login 
+      nevigate("/main");
+    } else {
+      alert("register first");
+      // check the router part 
+      nevigate("/register");
+    }
+    
+  };
+
+  // TODO : call the function in login button or submit button  
+
+
+
   return (
     <section id='login_section'>
 
