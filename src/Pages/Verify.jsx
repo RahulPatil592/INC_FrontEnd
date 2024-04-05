@@ -15,48 +15,27 @@ const Verify = () => {
     event.preventDefault()
     const docid = event.target.docid.value;
 
+    const res = await axios.get(`/user/read${event.target.doctype.value}?id=${docid}`)
+    if (res) {
+      const data = res.data.record;
+      setModalData(data)
+      console.log("veridata", modalData)
+      // setModal(true)
 
-    //validate docid
-    //set isverified
-  
-    const res=await axios.get(`/user/read${event.target.doctype.value}?id=${docid}`)
-    // .then((res) => {
-      
-      // modalData=data;
-     
-      // console.log("data",res.data.record)
-      if(res){
-        const data=res.data.record;
-        setModalData(data)
-        console.log("veridata",modalData)
-      }
-      else{
-        setValid(false)
-      }
-      console.log("modaldata",modalData)
-  // })
-  // .catch(() => {
-  //   setValid(false)
-  //     alert('something went wrong')
-  // })
-  // console.log("modaldata",modalData)
-
-
-    // # TODO : data is in result object 
-    // console.log(result);
+    }
+    else {
+      setValid(false)
+      setModal(false)
+    }
 
     if (docid === "") {
       setValid(false)
     }
     else {
       setValid(true)
-      setModal(true);
     }
-
-    // (result) ? setModalData(result) : setValid(false);
-    // setModalData(Ips[0])
   }
-  console.log("modaldata",modalData)
+
   return (
     <>
       <section id='verify_sec'>

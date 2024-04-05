@@ -75,8 +75,7 @@ const PDFDocumentIP = ({data,blockId,trxnHash,documentId}) => (
           <Text>{data.description}</Text>
         </View>
         <View style={IPstyles.v7}>
-           {/* {data} */}
-        {/* <Text >{`https://ipfs.io/ipfs/${data.proofs[0]}`}</Text> */}
+        <Text >{`https://ipfs.io/ipfs/${data.proofs[0]}`}</Text>
         </View>
       </Page>
     </Document>

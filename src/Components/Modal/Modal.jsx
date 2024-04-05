@@ -30,6 +30,7 @@ const Modal = ({ modalData, setModal, isverified, setIsVerified }) => {
   };
   // getBlock();
   return (
+    
     <section id="modal_sec">
       <div id="modal_clsbtn_div">
         <button
@@ -47,11 +48,11 @@ const Modal = ({ modalData, setModal, isverified, setIsVerified }) => {
             <p className="modal_title">{IPdata?.title}</p>}
         {!isverified &&
             <p className="modal_id">
-          Block ID: <span className="modal_mnid">{modalData.blockNumber}</span>
+          Block ID: <span className="modal_mnid">{modalData?.blockNumber}</span>
         </p>}
        {!isverified &&
        <p className="modal_type">
-          Type : <span className="modal_mntype">{modalData.type}</span>
+          Type : <span className="modal_mntype">{modalData?.type}</span>
         </p>}
         {/* <p className='modal_desc_title'>
                     Description<br />
@@ -70,7 +71,7 @@ const Modal = ({ modalData, setModal, isverified, setIsVerified }) => {
         {
             isverified && modalData &&
             <a  
-          href={`https://ipfs.io/ipfs/${modalData.willDocument}`}
+          href={`https://ipfs.io/ipfs/${modalData?.willDocument}`}
           className="mdbtn" onClick={showDoc}>
             View Document
           </a>
@@ -80,20 +81,20 @@ const Modal = ({ modalData, setModal, isverified, setIsVerified }) => {
           {IPdata && (
             <PDFDownloadComponent
               data={IPdata ? IPdata : {}}
-              type={modalData.type?'ip':'will'}
-              blockId={modalData.blockNumber}
-              trxnHash={modalData.trxnHash}
-              documentId={modalData.documentId}
+              type={modalData?.type?'ip':'will'}
+              blockId={modalData?.blockNumber}
+              trxnHash={modalData?.trxnHash}
+              documentId={modalData?.documentId}
             />
           )}
         {
             isverified &&
             <PDFDownloadComponent
               data={modalData}
-              type={modalData.type?'ip':'will'}
-              blockId={modalData.blockNumber}
-              trxnHash={modalData.trxnHash}
-              documentId={modalData.documentId}
+              type={modalData?.type?'ip':'will'}
+              blockId={modalData?.blockNumber}
+              trxnHash={modalData?.trxnHash}
+              documentId={modalData?.documentId}
             />
         }
           {/* </button> */}
