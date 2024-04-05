@@ -2,7 +2,6 @@
   "name": "inc_client",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://localhost:8080",
   "dependencies": {
     "@react-pdf/renderer": "^3.4.2",
     "@testing-library/jest-dom": "^5.17.0",
@@ -16,6 +15,9 @@
     "shortid": "^2.2.16",
     "web-vitals": "^2.1.4"
   },
+  
+   "proxy":"http://localhost:8000",
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

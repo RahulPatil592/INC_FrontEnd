@@ -16,10 +16,15 @@ const CreateIP = () => {
 
   const submitIPForm = async (e) => {
     e.preventDefault();
-    SetSelectedFile(d => [...d, e.target.newOwnerDigitalSign.files[0]])
+   
 
     itemFormData.append("newOwnerName", e.target.newOwnerName.value);
-    itemFormData.append("docs", selectedfile);
+    console.log("----->",e.target.newOwnerDigitalSign.files[0])
+    itemFormData.append('docs[]',JSON.stringify(e.target.newOwnerDigitalSign.files[0]));
+    for (let i = 0; i < selectedfile.length; i++) {
+      itemFormData.append('docs[]', JSON.stringify(selectedfile[i]));
+    }
+
     // itemFormData("newOwnerProofType", e.target.newOwnerProofType.value);
     itemFormData.append("newOwnerProofIdentifier", e.target.newOwnerProofIdentifier.value);
     itemFormData.append("newTitle", e.target.newTitle.value);
@@ -28,7 +33,7 @@ const CreateIP = () => {
     itemFormData.append("stnewLinks", e.target.stnewLinks.value);
     itemFormData.append("newLicenseType", e.target.newLicenseType.value);
     itemFormData.append("termsChecked", e.target.termsChecked.value);
-    itemFormData.append("newExtrainfo", e.target.newExtrainfo.value);
+    itemFormData.append("newExtraInfo", e.target.newExtrainfo.value);
 
 
     const axiosConfig = {
