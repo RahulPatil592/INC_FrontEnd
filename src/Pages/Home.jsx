@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "../Styles/Home.css"
 import homesvg from "../assets/homeSVG.svg"
-import { Link } from 'react-router-dom'
+import { Link, ScrollRestoration } from 'react-router-dom'
 import { characteristics, features, questions } from './whydata.js';
 import arrowimg from '../assets/arrowUpSVG.svg'
 import contimg from '../assets/contactSVG.svg'
@@ -167,6 +167,7 @@ const Home = () => {
                         })
                     }
                 </div>
+                <ScrollRestoration/>
             </section>
         </>
     )

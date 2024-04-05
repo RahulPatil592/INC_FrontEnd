@@ -2,27 +2,92 @@ import React from 'react';
 import uploadimg from '../assets/uploadSVG.svg';
 import { useState } from 'react';
 import '../Styles/CreateWill.css'
-import DragAndDrop from '../Components/DragAndDrop/DragAndDrop'
+import DragAndDrop from '../Components/DragAndDrop/DragAndDrop';
+import axios from 'axios';
+import { ScrollRestoration } from 'react-router-dom';
+/*
+newExecutorName,
+        newExecutorIdProof,
+        newExecutorDigitalSign,
 
+        newTestatorName,
+        newTestatorIdProof,
+        newTestatorDigitalSign,
+
+        newWitnessName,
+        newWitnessIdProof,
+        newWitnessDigitalSign,
+
+        newDocument,
+ */
 const CreateWill = () => {
   const [selectedfile, SetSelectedFile] = useState([])
   const [valid, setValid] = useState(true);
-  // setValid(true);
   const [exdigsign, setexDigSign] = useState('');
-
   const [tesdigsign, settesDigSign] = useState('');
 
   const [witdigsign, setwitDigSign] = useState('');
 
+  let itemFormData = new FormData();
+
+  const submitIPForm = async (e) => {
+    e.preventDefault();
+    // SetSelectedFile(d => [...d, 
+    // e.target.newExecutorDigitalSign.files[0],
+    // e.target.newTestatorDigitalSign.files[0],
+    // e.target.newWitnessDigitalSign.files[0]])
+   
+    for (let i = 0; i < selectedfile.length; i++) {
+      itemFormData.append('docs[]', JSON.stringify(selectedfile[i]));
+    }
+
+    itemFormData.append('docs[]', JSON.stringify(e.target.newExecutorDigitalSign.files[0]));
+    itemFormData.append('docs[]', JSON.stringify(e.target.newTestatorName.files[0]));
+    itemFormData.append('docs[]', JSON.stringify(e.target.newWitnessName.files[0]));
+
+
+    itemFormData.append("newExecutorName", e.target.newExecutorName.value);
+    itemFormData.append("newExecutorIdProof", e.target.newExecutorIdProof.value);
+    // itemFormData.append("newExecutorDigitalSign", e.target.newExecutorDigitalSign.file);
+
+    itemFormData.append("newTestatorName", e.target.newTestatorName.value);
+    itemFormData.append("newTestatorIdProof", e.target.newTestatorIdProof.value);
+    // itemFormData.append("newTestatorDigitalSign", e.target.newTestatorDigitalSign.file);
+
+    itemFormData.append("newWitnessName", e.target.newWitnessName.value);
+    itemFormData.append("newWitnessIdProof", e.target.newWitnessIdProof.value);
+    // itemFormData.append("newWitnessDigitalSign", e.target.newWitnessDigitalSign.file);
+
+    // itemFormData.append("newDocument", e.target.newDocument.value);
+    console.log("hello ", selectedfile, e.target.newExecutorName.value)
+    const axiosConfig = {
+      headers: {
+        'Content-Type': "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+      }
+    }
+    await axios.post('/user/upload', itemFormData, axiosConfig)
+      .then((it) => {
+        alert("Item added ")
+      })
+      .catch((err) => {
+        alert("error")
+        console.log(err);
+      })
+
+    e.target.reset();
+    SetSelectedFile([]);
+  }
+
   return (
-    <section id='create_ip_sec'>  
+    <section id='create_ip_sec'>
       <p id='create_ip_title'>Create Will</p>
-      <form action="">
+      <form action="" onSubmit={submitIPForm}>
         <div id='owner_det_div'>
           <p className='create_titles'>Executor Details</p>
           <div id='owner_det_inpt_div'>
             <div className='inps'>
-              <input type="text" name='exname' placeholder='Name' />
+              <input type="text" name='newExecutorName' placeholder='Name' />
             </div>
             <div className='inps inp1'>
               {
@@ -30,11 +95,11 @@ const CreateWill = () => {
                 exdigsign.slice(0, exdigsign.length)
               }
               Upload Digital Sign
-              <input type="file" name='exsign' onChange={(event) => { setexDigSign(event.target.value) }} />
+              <input type="file" name='newExecutorDigitalSign' onChange={(event) => { setexDigSign(event.target.value) }} />
               <img src={uploadimg} alt="" />
             </div>
             <div className='inps'>
-              <input type="text" placeholder='Aadhar no.' name='exaadhanno' />
+              <input type="text" placeholder='Aadhar no.' name='newExecutorIdProof' />
             </div>
           </div>
 
@@ -44,7 +109,7 @@ const CreateWill = () => {
             <p className='create_titles'>Testator Details</p>
             <div id='owner_det_inpt_div'>
               <div className='inps'>
-                <input type="text" name='tesname' placeholder='Name' />
+                <input type="text" name='newTestatorName' placeholder='Name' />
               </div>
               <div className='inps inp1'>
                 {
@@ -52,11 +117,11 @@ const CreateWill = () => {
                   tesdigsign.slice(0, tesdigsign.length)
                 }
                 Upload Digital Sign
-                <input type="file" name='tessign' onChange={(event) => { settesDigSign(event.target.value) }} />
+                <input type="file" name='newTestatorDigitalSign' onChange={(event) => { settesDigSign(event.target.value) }} />
                 <img src={uploadimg} alt="" />
               </div>
               <div className='inps'>
-                <input type="text" placeholder='Aadhar no.' name='tesaadhanno' />
+                <input type="text" placeholder='Aadhar no.' name='newTestatorIdProof' />
               </div>
             </div>
           </div>
@@ -65,7 +130,7 @@ const CreateWill = () => {
           <p className='create_titles'>Witness Details</p>
           <div id='owner_det_inpt_div'>
             <div className='inps'>
-              <input type="text" name='witname' placeholder='Name' />
+              <input type="text" name='newWitnessName' placeholder='Name' />
             </div>
             <div className='inps inp1'>
               {
@@ -73,11 +138,11 @@ const CreateWill = () => {
                 witdigsign.slice(0, witdigsign.length)
               }
               Upload Digital Sign
-              <input type="file" name='witsign' onChange={(event) => { setwitDigSign(event.target.value) }} />
+              <input type="file" name='newWitnessDigitalSign' onChange={(event) => { setwitDigSign(event.target.value) }} />
               <img src={uploadimg} alt="" />
             </div>
             <div className='inps'>
-              <input type="text" placeholder='Aadhar no.' name='witaadhanno' />
+              <input type="text" placeholder='Aadhar no.' name='newWitnessIdProof' />
             </div>
           </div>
 
@@ -103,6 +168,7 @@ const CreateWill = () => {
           <button className='sbt_btn'>Submit</button>
         </p>
       </form>
+      <ScrollRestoration />
     </section>
 
 

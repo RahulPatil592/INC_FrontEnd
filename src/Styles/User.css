@@ -4,7 +4,7 @@
     background-color: var(--color-bg);
     display: flex;
     gap: 4vmax;
-    padding: 3vmax 1vmax;
+    padding: 8vmax 1vmax 3vmax 1vmax;
 }
 
 #user_panel{

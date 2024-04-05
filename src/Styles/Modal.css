@@ -10,6 +10,7 @@
     top: 0vmax;
     backdrop-filter: blur(4px); 
     gap: 1vmax;
+    z-index: 10;
 }
 .isverified_div{
     width: 100%;
