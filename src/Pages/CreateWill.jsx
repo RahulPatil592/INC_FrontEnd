@@ -37,14 +37,14 @@ const CreateWill = () => {
     // e.target.newTestatorDigitalSign.files[0],
     // e.target.newWitnessDigitalSign.files[0]])
    
+    
+
+    itemFormData.append('willDocs', e.target.newExecutorDigitalSign.files[0]);
+    itemFormData.append('willDocs', e.target.newTestatorDigitalSign.files[0]);
+    itemFormData.append('willDocs', e.target.newWitnessDigitalSign.files[0]);
     for (let i = 0; i < selectedfile.length; i++) {
-      itemFormData.append('docs[]', JSON.stringify(selectedfile[i]));
+      itemFormData.append('willDocs', selectedfile[i]);
     }
-
-    itemFormData.append('docs[]', JSON.stringify(e.target.newExecutorDigitalSign.files[0]));
-    itemFormData.append('docs[]', JSON.stringify(e.target.newTestatorName.files[0]));
-    itemFormData.append('docs[]', JSON.stringify(e.target.newWitnessName.files[0]));
-
 
     itemFormData.append("newExecutorName", e.target.newExecutorName.value);
     itemFormData.append("newExecutorIdProof", e.target.newExecutorIdProof.value);
@@ -59,14 +59,17 @@ const CreateWill = () => {
     // itemFormData.append("newWitnessDigitalSign", e.target.newWitnessDigitalSign.file);
 
     // itemFormData.append("newDocument", e.target.newDocument.value);
-    console.log("hello ", selectedfile, e.target.newExecutorName.value)
+    //console.log("hello ", selectedfile, e.target.newExecutorName.value)
     const axiosConfig = {
       headers: {
         'Content-Type': "multipart/form-data",
         "Access-Control-Allow-Origin": "*",
       }
+
     }
-    await axios.post('/user/upload', itemFormData, axiosConfig)
+    
+   
+    await axios.post('/user/uploadWill', itemFormData, axiosConfig)
       .then((it) => {
         alert("Item added ")
       })
@@ -176,3 +179,4 @@ const CreateWill = () => {
 }
 
 export default CreateWill
+

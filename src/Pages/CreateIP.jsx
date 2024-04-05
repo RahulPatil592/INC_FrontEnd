@@ -19,19 +19,23 @@ const CreateIP = () => {
     e.preventDefault();
      
 
-    itemFormData.append("newOwnerName", e.target.newOwnerName.value);
-    console.log("----->",e.target.newOwnerDigitalSign.files[0])
-    itemFormData.append('docs[]',JSON.stringify(e.target.newOwnerDigitalSign.files[0]));
+    itemFormData.append('docs',e.target.newOwnerDigitalSign.files[0]);
+   
     for (let i = 0; i < selectedfile.length; i++) {
-      itemFormData.append('docs[]', JSON.stringify(selectedfile[i]));
+      
+      itemFormData.append('docs', selectedfile[i] );
     }
+ 
+    itemFormData.append("newOwnerName", e.target.newOwnerName.value);
+   
+   
      
-    // itemFormData("newOwnerProofType", e.target.newOwnerProofType.value);
+    // itemFormData.append("newOwnerProofType", e.target.newOwnerProofType.value);
     itemFormData.append("newOwnerProofIdentifier", e.target.newOwnerProofIdentifier.value);
     itemFormData.append("newTitle", e.target.newTitle.value);
     itemFormData.append("newIpType", e.target.newIpType.value);
     itemFormData.append("newDescription", e.target.newDescription.value);
-    itemFormData.append("stnewLinks", e.target.stnewLinks.value);
+    itemFormData.append("newLinks", e.target.stnewLinks.value);
     itemFormData.append("newLicenseType", e.target.newLicenseType.value);
     itemFormData.append("termsChecked", e.target.termsChecked.value);
     itemFormData.append("newExtraInfo", e.target.newExtrainfo.value);

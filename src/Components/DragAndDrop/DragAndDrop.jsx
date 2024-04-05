@@ -5,7 +5,8 @@ import '../../Styles/DragAndDrop.css'
 
 const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
     const [Files, SetFiles] = useState([]);
-    console.log(selectedfile)
+  
+
 
     const filesizes = (bytes, decimals = 2) => {
         if (bytes === 0) return '0 Bytes';
@@ -27,14 +28,15 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                 SetSelectedFile((preValue) => {
                     return [
                         ...preValue,
-                        {
-                            id: shortid.generate(),
-                            filename: e.target.files[i].name,
-                            filetype: e.target.files[i].type,
-                            fileimage: reader.result,
-                            datetime: e.target.files[i].lastModifiedDate.toLocaleString('en-IN'),
-                            filesize: filesizes(e.target.files[i].size)
-                        }
+                        e.target.files[i]
+                        // {
+                        //     id: shortid.generate(),
+                        //     filename: e.target.files[i].name,
+                        //     filetype: e.target.files[i].type,
+                        //     fileimage: reader.result,
+                        //     datetime: e.target.files[i].lastModifiedDate.toLocaleString('en-IN'),
+                        //     filesize: filesizes(e.target.files[i].size)
+                        // }
                     ]
                 });
             }
@@ -105,7 +107,7 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                         <div className="kb-attach-box">
                             {
                                 selectedfile?.map((data, index) => {
-                                    // console.log("data : ",data);
+                                  
                                     const { id, filename, fileimage, datetime, filesize } = data;
                                     if (id) {
 
