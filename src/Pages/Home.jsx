@@ -8,6 +8,7 @@ import contimg from '../assets/contactSVG.svg'
 import redirectimg from '../assets/redirectBtnSVG.svg'
 import qplusimg from '../assets/queplusSVG.svg'
 import qminusimg from '../assets/questionMinunsSVG.svg'
+import howitworks from '../assets/howitworks.png'
 
 
 const Home = () => {
@@ -21,9 +22,9 @@ const Home = () => {
                     <div id='c2'></div>
                     <div id='c3'></div>
                     <div id='cont_div_main'>
-                        <p className='conttext cont1' style={{ color: '#0870D9' }}>Unchained<span style={{ color: 'black' }}>IP</span></p>
-                        <p className='conttext cont2'>Protecting your Intellectual <br />Property with Blockchain based<br />Proof-of-First-Use.</p>
-                        <p className='cont3'>Safeguard your intellectual creations effortlessly. Register and secure your innovations with indisputable proof of first use with UnchainedIP</p>
+                        <p className='conttext cont1' style={{ color: '#0870D9' }}>Origin<span style={{ color: 'black' }}>Mark</span></p>
+                        <p className='conttext cont2'>Your 'first line of defense' <br />against IP theft<br />or will tamper</p>
+                        <p className='cont3'>Instantly create Proof-of-First-Use documents or will records and store them on blockchain immutably and permanently!</p>
                         <div id='cont_btndiv'>
                             <Link
                                 to='/create'
@@ -36,7 +37,7 @@ const Home = () => {
                 </div>
             </section>
             <section id='home_sec2'>
-                <p id='home_sec2title'>Why Our Platform?</p>
+                <p id='home_sec2title'>Who should create a PoFU?</p>
                 <div id='chars_div'>
                     {
                         characteristics.map((char, index) => {
@@ -62,7 +63,7 @@ const Home = () => {
             </section>
             <section id='home_sec3'>
                 <p id='home_sec3title'>Features</p>
-                <p id='home_sec3cont'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet justo donec enim diam vulputate. Risus quis varius quam quisque id. At auctor urna nunc id cursus metus aliquam.</p>
+                <p id='home_sec3cont'>"Numerous disputes over IP theft and Will are filed in courts every year.<br/>In case of IP theft, it is difficult for the plaintiff to prove his/her creatorship as the burden of proof lies on the plaintiff. The PoFU helps the owner establish a proof of existence in such cases.<br/>Similarly, to avoid disputes over potential tampering of Wills, the Will document can be immutably stored on the blockchain"</p>
 
                 <div id='features_div'>
                     {
@@ -107,18 +108,18 @@ const Home = () => {
             </section>
             <section id='home_sec4'>
                 <div id='home_sec4title'>How It Works?</div>
-                <div id='hiw_div'></div>
+                <div id='hiw_div'><center><img src={howitworks} alt="" /></center></div>
             </section>
             <section id='home_sec5'>
                 <div id='sce5contdiv'>
                     <p id='home_sec5title'>Get In Touch</p>
-                    <p id='home_sec5cont'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p id='home_sec5cont'>Curious about us?<br/> visit the following page to know more about us or to reach out!</p>
                     <div id='redirects_div'>
                         <Link
                             to='/about'
                             className='redlink rl1'>
                             <img src={redirectimg} alt="" />
-                            Know About Us/Contact Us
+                            About Us
                         </Link>
                     </div>
                 </div>

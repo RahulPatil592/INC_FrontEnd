@@ -8,7 +8,7 @@ const Create = () => {
        <div className='create_div'>
          <p className='crr1'>Create IP</p>
          <p className='crr2'>
-         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+         Store all the IP information and related documents along with your signature to create a permanent record and get it's certificate.
          </p>
          <p className='crr3'>
           <Link 
@@ -24,7 +24,7 @@ const Create = () => {
        <div className='create_div'>
          <p className='crr1'>Create Will</p>
          <p className='crr2'>
-         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+         Store the legal copy of your will along with testator and witness signatures immutably on the blockchain.
          </p>
          <p className='crr3'>
           <Link 

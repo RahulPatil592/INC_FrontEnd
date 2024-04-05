@@ -5,24 +5,34 @@ import f2img from "../assets/feature2SVG.svg"
 export const characteristics=
 [
     {
-      title:"Trustless System",
+      title:"Music artists & Composers",
       image:char1,
-      content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat.",
+      content:"Securely timestamp music compositions and lyrics to establish ownership.",
     },
     {
-        title:"Trustless System",
+        title:"Content Creators",
         image:char1,
-        content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat.",
+        content:"Lock down proof-of-creation for original content like videos, blogs, and social media posts.",
       },
       {
-        title:"Trustless System",
+        title:"Photographers & Videographers",
         image:char1,
-        content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat.",
+        content:"Guarantee creation dates for photos and videos, protecting copyrights.",
       },
       {
-        title:"Trustless System",
+        title:"Researchers & Inventors",
         image:char1,
-        content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat.",
+        content:"Safely timestamp research findings and inventions before formal applications.",
+      },
+      {
+        title:"Engineers & Developers",
+        image:char1,
+        content:"Document and secure ownership of early code, designs, and prototypes.",
+      },
+      {
+        title:"Artists & Designers",
+        image:char1,
+        content:"Establish proof-of-creation for artwork, illustrations, and design concepts.",
       },
 ]
 
@@ -31,12 +41,12 @@ export const features=
   {
     title:"Intelectual Property",
     image:f1img,
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing vitae proin sagittis nisl. ",
+    content:"Store all the IP information and related documents along with your signature to create a permanent record and get it's certificate.",
   },
   {
     title:"Will Generation",
     image:f2img,
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing vitae proin sagittis nisl. ",
+    content:"Store the legal copy of your will along with testator and witness signatures immutably on the blockchain.",
   },
 
 ]
@@ -44,20 +54,20 @@ export const features=
 export const questions=
 [
   {
-    que:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum.",
+    que:"Does OriginMark assure legal protection?",
+    ans:"No. We do not try to replace IP registries or the Judiciary system which grant you the protection of your Intellectual property.",
   },
   {
-    que:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum.",
+    que:"Does OriginMark offer legal assistance in case of disputes?",
+    ans:"No. we do not provide any kind of legal assistance in case of disputes over your IP or Will.",
   },
   {
-    que:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum.",
+    que:"Do I have to have registered my IP before creating the PoFU?",
+    ans:"No. in fact, PoFU is most useful for IPs which are not significant enough to be registered or to possess a temporary protection until the IP is registered. It is always advisable to register the IP and seek legal opinion.",
   },
   {
-    que:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum.",
+    que:"Do I create the will on the platform directly?",
+    ans:"No. We encourage following the legal system in country to create an official will adn then store it's softcopy on the platform.",
   },
 
 ]

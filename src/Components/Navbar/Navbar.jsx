@@ -11,7 +11,7 @@ const Navbar = () => {
             <div id='nav_d1'>
                 <p onClick={()=>{
                     setUserLoggedIn(!userLoggedIn)
-                }}>UnchainedIP</p>
+                }}>OriginMark</p>
             </div>
             <div id='nav_d2'>
                 <ul>

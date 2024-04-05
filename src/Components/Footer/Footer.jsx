@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <section id='footer_sec'>
             <div id='ft1'>
-                <div id='footer_seclogo'>UnchainedIP</div>
+                <div id='footer_seclogo'>OriginMark</div>
                 <div id='social_media'>
                     <ul>
                         
@@ -32,7 +32,7 @@ const Footer = () => {
                    <Link className='flinks'>Terms & Privacy Policy</Link>
                 </div>
                 <p id='cprt'>
-                © 2024 UnchainedIP
+                © 2024 OriginMark
                 </p>
             </div>
         </section>
