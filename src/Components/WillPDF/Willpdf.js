@@ -1,5 +1,4 @@
-import { Fragment } from 'react';
-import { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
 const Willstyles = StyleSheet.create(
     {
         page: {
@@ -8,20 +7,20 @@ const Willstyles = StyleSheet.create(
             gap: 30,
         },
         u1: {
-            flexDirection: "row",
-            justifyContent: "space-between",
+            flexDirection: "column",
+            alignItems:"baseline",
             fontSize: 12,
             gap: 10,
         },
         u2: {
-            flexDirection: "row",
-            justifyContent: "space-between",
+            flexDirection: "column",
+            alignItems:"baseline",
             fontSize: 12,
             gap: 10,
         },
         u3: {
-            flexDirection: "row",
-            justifyContent: "space-between",
+            flexDirection: "column",
+            alignItems:"baseline",
             fontSize: 12,
             gap: 10,
         },
@@ -59,39 +58,36 @@ const Willstyles = StyleSheet.create(
     }
 )
 
-const PDFDocumentWill = ({ data }) => (
+const PDFDocumentWill = ({ data,blockId,trxnHash,documentId }) => (
     <Document>
         <Page size="A4" style={Willstyles.page}>
             <View style={Willstyles.u1}>
-                <Text>Executor Name : {data.newExecutorName} </Text>
-                <Link href={data.newExecutorDigitalSign}>View Digital Sign</Link>
-                <Text>Aadhar No. : {data.newExecutorIdProof}</Text>
+                <Text>Executor Name : {data.executorName} </Text>
+                <Text>{`https://ipfs.io/ipfs/${data.executorDigitalSign}`}</Text>
+                <Text>Aadhar No. : {data.executorIdProof}</Text>
             </View>
             <View style={Willstyles.u2}>
-                <Text>Testator Name : {data.newTestatorName}</Text>
-                <Link href={data.newTestatorDigitalSign}>View Digital Sign</Link>
+                <Text>Testator Name : {data.testatorName}</Text>
+                <Text>{`https://ipfs.io/ipfs/${data.testatorDigitalSign}`}</Text>
                 <Text>Aadhar No. : {data.newTestatorIdProof}</Text>
             </View>
             <View style={Willstyles.u3}>
-                <Text>Witness Name : {data.newWitnessName}</Text>
-                <Link href={data.newWitnessDigitalSign}>View Digital Sign</Link>
-                <Text>Aadhar No. : {data.newWitnessIdProof}</Text>
+                <Text>Witness Name : {data.witnessName}</Text>
+                <Text>{`https://ipfs.io/ipfs/${data.witnessDigitalSign}`}</Text>
+                <Text>Aadhar No. : {data.witnessIdProof}</Text>
             </View>
 
             <View style={Willstyles.v3}>
-                <Text>Block Id: {data.blockId}</Text>
-                <Text>Transaction Hash : {data.transactionHash}</Text>
+                <Text>Block Id: {blockId}</Text>
+                <Text>Transaction Hash : {trxnHash}</Text>
             </View>
             <View style={Willstyles.v4}>
-                <Text>Contract Id: {data.contractId}</Text>
-                <Text>Document Id : {data.documentId}</Text>
+                <Text>Document Id : {documentId}</Text>
             </View>
             <View style={Willstyles.v7}>
                 <Text>Document Links : </Text>
                 <br></br>
-                {data.proofs.map((link, index) => (
-                    <Link href={link} key={index}>{link}</Link>
-                ))}
+                <Link>{`https://ipfs.io/ipfs/${data.willDocument}`}</Link>
             </View>
         </Page>
     </Document>

@@ -17,11 +17,10 @@ const router = createBrowserRouter(
         <Route>
             <Route path='login' element={<Login />} />
 
-            <Route path='register' element={<Register />} />
+            <Route path='signup' element={<Register />} />
 
             <Route path='/' element={<Layout />}>
                 <Route path='' element={<Home />} />
-
                 <Route path='create'>
                     <Route path='' element={<Create/>}/>
                     <Route path='ip' element={<CreateIP/>}/>

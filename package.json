@@ -15,9 +15,7 @@
     "shortid": "^2.2.16",
     "web-vitals": "^2.1.4"
   },
-  
-   "proxy":"http://localhost:8000",
-
+  "proxy": "https://unchainedip.onrender.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

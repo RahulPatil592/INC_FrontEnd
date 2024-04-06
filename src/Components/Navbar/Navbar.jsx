@@ -49,7 +49,7 @@ const Navbar = () => {
                     </Link>
 
                     <Link 
-                    to='/register'
+                    to='/signup'
                     className='l2'>
                         <div>
                             Sign Up

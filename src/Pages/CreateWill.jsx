@@ -32,12 +32,6 @@ const CreateWill = () => {
 
   const submitIPForm = async (e) => {
     e.preventDefault();
-    // SetSelectedFile(d => [...d, 
-    // e.target.newExecutorDigitalSign.files[0],
-    // e.target.newTestatorDigitalSign.files[0],
-    // e.target.newWitnessDigitalSign.files[0]])
-   
-    
 
     itemFormData.append('willDocs', e.target.newExecutorDigitalSign.files[0]);
     itemFormData.append('willDocs', e.target.newTestatorDigitalSign.files[0]);
@@ -67,8 +61,8 @@ const CreateWill = () => {
       }
 
     }
-    
-   
+
+
     await axios.post('/user/uploadWill', itemFormData, axiosConfig)
       .then((it) => {
         alert("Item added ")

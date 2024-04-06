@@ -5,7 +5,7 @@ import '../../Styles/DragAndDrop.css'
 
 const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
     const [Files, SetFiles] = useState([]);
-  
+
 
 
     const filesizes = (bytes, decimals = 2) => {
@@ -25,15 +25,17 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
             let reader = new FileReader();
             let file = e.target.files[i];
             reader.onloadend = () => {
+
                 SetSelectedFile((preValue) => {
+                    e.target.files[i]["fileimage"] = reader.result;
                     return [
                         ...preValue,
-                        e.target.files[i]
+                        e.target.files[i],
                         // {
                         //     id: shortid.generate(),
                         //     filename: e.target.files[i].name,
                         //     filetype: e.target.files[i].type,
-                        //     fileimage: reader.result,
+                        // fileimage: reader.result,
                         //     datetime: e.target.files[i].lastModifiedDate.toLocaleString('en-IN'),
                         //     filesize: filesizes(e.target.files[i].size)
                         // }
@@ -97,7 +99,6 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                                 <h6>Upload Documents</h6>
                             </div>
                         </div>
-                        {/* <form onSubmit={FileUploadSubmit}> */}
                         <div className="kb-file-upload">
                             <div className="file-upload-box">
                                 <input type="file" id="fileupload" className="file-upload-input" onChange={InputChange} multiple />
@@ -107,30 +108,30 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                         <div className="kb-attach-box">
                             {
                                 selectedfile?.map((data, index) => {
-                                  
-                                    const { id, filename, fileimage, datetime, filesize } = data;
-                                    if (id) {
+
+                                    const { id, name, fileimage, lastModifiedDate, size } = data;
+                                    console.log(data)
 
 
-                                        return (
+                                    return (
 
-                                            <div className="file-atc-box" key={index}>
-                                                {
-                                                    filename?.match(/.(jpg|jpeg|png|gif|svg)$/i) ?
-                                                        <div className="file-image"> <img src={fileimage} alt="" /></div> :
-                                                        <div className="file-image"><i className="far fa-file-alt"></i></div>
-                                                }
-                                                <div className="file-detail">
-                                                    <h6>{filename}</h6>
-                                                    <p></p>
-                                                    <p><span>Size : {filesize}</span><span className="ml-2">Modified Time : {datetime}</span></p>
-                                                    <div className="file-actions">
-                                                        <button type="button" className="file-action-btn" onClick={() => DeleteSelectFile(id)}>Delete</button>
-                                                    </div>
+                                        <div className="file-atc-box" key={index}>
+                                            {
+                                                name?.match(/.(jpg|jpeg|png|gif|svg)$/i) ?
+                                                    <div className="file-image"> <img src={fileimage} alt="" /></div> :
+                                                    <div className="file-image"><i className="far fa-file-alt"></i></div>
+                                            }
+                                            <div className="file-detail">
+                                                <h6>{name}</h6>
+                                                <p></p>
+                                                <p><span>Size : {size}</span>&nbsp;<span className="ml-2">Modified Time : {JSON.stringify(lastModifiedDate).substring(1, 11)}</span></p>
+                                                <div className="file-actions">
+                                                    <button type="button" className="file-action-btn" onClick={() => DeleteSelectFile(index)}>Delete</button>
                                                 </div>
                                             </div>
-                                        )
-                                    }
+                                        </div>
+                                    )
+
 
                                 })
                             }
@@ -141,7 +142,7 @@ const DragAndDrop = ({ selectedfile, SetSelectedFile }) => {
                         {/* </form> */}
                         {Files.length > 0 ?
                             <div className="kb-attach-box">
-                                <hr />
+                                <hr/>
                                 {
                                     Files.map((data, index) => {
                                         const { id, filename, fileimage, datetime, filesize } = data;

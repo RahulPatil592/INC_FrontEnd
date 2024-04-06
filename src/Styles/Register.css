@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: baseline;
     background-color: var(--color-bg);
-    padding: 3vmax 0 0 0;
+    padding: 6vmax 0 0 0;
 }
 #form_title{
     font-size: 2vmax;
@@ -100,6 +100,11 @@
 
 #reg_form .btn2 img{
     width: 1.1vmax;
+}
+#reg_form .btn1 #signupop{
+    padding-top: 1vmax;
+    font-size: 1vmax;
+    font-weight: 400;
 }
 
 #reg_imgdiv{
