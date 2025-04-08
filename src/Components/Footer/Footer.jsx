@@ -32,7 +32,7 @@ const Footer = () => {
                    <Link className='flinks'>Terms & Privacy Policy</Link>
                 </div>
                 <p id='cprt'>
-                © 2024 OriginMark
+                © 2025 OriginMark
                 </p>
             </div>
         </section>

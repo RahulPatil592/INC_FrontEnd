@@ -20,10 +20,10 @@ const Verify = () => {
       const data = res.data.record;
       setModalData(data)
       console.log("veridata", modalData)
-      // setModal(true)
-
+      
     }
     else {
+      console.log("***********Failure");
       setValid(false)
       setModal(false)
     }

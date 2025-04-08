@@ -108,7 +108,7 @@ const Home = () => {
             </section>
             <section id='home_sec4'>
                 <div id='home_sec4title'>How It Works?</div>
-                <div id='hiw_div'><center><img src={howitworks} alt="" /></center></div>
+                <div id='hiw_div'><center><img src={howitworks} alt="" style={{backgroundSize:'contain'}} width={600} /></center></div>
             </section>
             <section id='home_sec5'>
                 <div id='sce5contdiv'>
