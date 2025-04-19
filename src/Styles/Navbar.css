@@ -71,3 +71,29 @@
 #nav_d3 img{
     width: 45%;
 }
+
+#user_profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#user_profile_img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#logout_btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#logout_btn:hover {
+    background-color: #ff1a1a;
+}
