@@ -36,7 +36,7 @@ const Navbar = () => {
                 to='/user'
                 id='nav_d3'>
                   <img src={userimg} alt="" />
-                </Link>
+                    </Link>
             }
             {
                 userLoggedIn &&
