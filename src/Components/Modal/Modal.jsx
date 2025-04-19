@@ -46,14 +46,19 @@ const Modal = ({ modalData, setModal, isverified, setIsVerified }) => {
         {isverified && <p className="isverified_div">Verified Document</p>}
         {!isverified &&
             <p className="modal_title">{IPdata?.title}</p>}
+              {!isverified &&
+       <p className="modal_type">
+          Type : <span className="modal_mntype">{modalData?.type}</span>
+        </p>}
         {!isverified &&
             <p className="modal_id">
           Block ID: <span className="modal_mnid">{modalData?.blockNumber}</span>
         </p>}
-       {!isverified &&
-       <p className="modal_type">
-          Type : <span className="modal_mntype">{modalData?.type}</span>
+        {!isverified &&
+            <p className="modal_id">
+          Document ID: <span className="modal_mnid">{modalData?.documentId}</span>
         </p>}
+     
         {/* <p className='modal_desc_title'>
                     Description<br />
                     <p className='modal_desc'>{modalData.newDescription}</p>
