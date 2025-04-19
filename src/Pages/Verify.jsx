@@ -17,7 +17,7 @@ const Verify = () => {
     event.preventDefault()
     const docid = event.target.docid.value;
 
-    const res = await axios.get(`/user/read${event.target.doctype.value}?id=${docid}`)
+    const res = await axios.get(`/user/read${doctype}?id=${docid}`)
     if (res) {
       const data = res.data.record;
       setModalData(data)
