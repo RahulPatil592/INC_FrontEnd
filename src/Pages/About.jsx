@@ -38,7 +38,6 @@ Altogether, the platform offers a state-of-art solution in the ‘Legal-Tech’ 
       <p id='cont_us_div'>
         Contact Us : <span >darshanmahajan101@gmail.com</span>
       </p>
-      <a href="http://google.com">Feedback</a>
     </p>
     <ScrollRestoration/>
     </section>
