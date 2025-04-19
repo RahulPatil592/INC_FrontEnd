@@ -78,19 +78,70 @@ const User = () => {
         <section id='user_sec1'>
           <div id='user_panel'>
             <div id='user_detail_div'>
-              <div id='user_imgdiv'><Skeleton circle={true} height={100} width={100} /></div>
+              <div id='user_imgdiv'>
+                <Skeleton
+                  circle={true}
+                  height={100}
+                  width={100}
+                  baseColor="#e0e0e0" // Light gray base color
+                  highlightColor="#f5f5f5" // Slightly lighter highlight color
+                />
+              </div>
               <div id='user_details_div'>
-                <p id='username'><Skeleton width={150} /></p>
-                <p id='useremail'><Skeleton width={200} /></p>
-                <p id='userphone'><Skeleton width={100} /></p>
+                <p id='username'>
+                  <Skeleton
+                    width={150}
+                    baseColor="#e0e0e0"
+                    highlightColor="#f5f5f5"
+                  />
+                </p>
+                <p id='useremail'>
+                  <Skeleton
+                    width={200}
+                    baseColor="#e0e0e0"
+                    highlightColor="#f5f5f5"
+                  />
+                </p>
+                <p id='userphone'>
+                  <Skeleton
+                    width={100}
+                    baseColor="#e0e0e0"
+                    highlightColor="#f5f5f5"
+                  />
+                </p>
               </div>
             </div>
             <div id='user_work_div'>
-              <p id='r1'><Skeleton width={200} /></p>
+              <p id='r1'>
+                <Skeleton
+                  width={200}
+                  baseColor="#e0e0e0"
+                  highlightColor="#f5f5f5"
+                />
+              </p>
               <div id='r2'>
-                <div id='total_cnt'><Skeleton width={50} height={50} /></div>
-                <div id='ips'><Skeleton width={50} /></div>
-                <div id='wills'><Skeleton width={50} /></div>
+                <div id='total_cnt'>
+                  <Skeleton
+                    width={50}
+                    height={50}
+                    baseColor="#e0e0e0"
+                    highlightColor="#f5f5f5"
+                  />
+                </div>
+                <div id='ips'>
+                  <Skeleton
+                    width={50}
+                    baseColor="#e0e0e0"
+                    highlightColor="#f5f5f5"
+                  />
+                </div>
+                <div id='wills'>
+                  <Skeleton
+                    width={50}
+                    baseColor="#e0e0e0"
+                    highlightColor="#f5f5f5"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -160,7 +211,24 @@ const User = () => {
           <div id="modal_div">
             {modalLoading ? (
               <div className="loader_container">
-                <div className="loader"></div>
+                <Skeleton
+                  height={10}
+                  width={200}
+                  baseColor="#e0e0e0"
+                  highlightColor="#f5f5f5"
+                />
+                <Skeleton
+                  height={10}
+                  width={150}
+                  baseColor="#e0e0e0"
+                  highlightColor="#f5f5f5"
+                />
+                <Skeleton
+                  height={10}
+                  width={300}
+                  baseColor="#e0e0e0"
+                  highlightColor="#f5f5f5"
+                />
               </div>
             ) : (
               <div className="fade-in">
