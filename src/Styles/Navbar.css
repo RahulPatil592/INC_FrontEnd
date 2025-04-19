@@ -34,24 +34,21 @@
 #nav_d4{
     display: flex;
     align-items: center;
-    justify-content: end;
-    gap: 1.5vmax;
-    font-weight: 400;
-    font-size: 1.1vmax;
-}
-#nav_d4 .l1{
-    color: var(--color-navLink);
+    gap: 15px;
 }
 
-#nav_d4 .l2 div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .5vmax 1vmax;
-    background-color: var(--color-primary);
-    border-radius: 20px;
-    font-weight: 500;
-    color: var(--color-nav-bg);
+.l1, .l2 {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.l1:hover, .l2:hover {
+    background-color: #0056b3;
 }
 
 #nav_d3{
@@ -66,7 +63,6 @@
     background-color: var(--color-ternary);
     border-radius: 500px;
 }
-
 
 #nav_d3 img{
     width: 45%;
@@ -84,16 +80,18 @@
     border-radius: 50%;
 }
 
-#logout_btn {
-    background-color: #ff4d4d;
+.logout_btn {
+    text-decoration: none;
     color: white;
-    border: none;
-    padding: 5px 10px;
+    background-color: #007bff; /* Same as Log In and Sign Up buttons */
+    padding: 5px 15px;
     border-radius: 5px;
+    font-size: 1.2rem;
+    border: none;
     cursor: pointer;
-    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-#logout_btn:hover {
-    background-color: #ff1a1a;
+.logout_btn:hover {
+    background-color: #0056b3; /* Hover effect */
 }
