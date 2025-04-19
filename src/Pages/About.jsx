@@ -31,14 +31,13 @@ Altogether, the platform offers a state-of-art solution in the ‘Legal-Tech’ 
     <div id='about_sec3'>
     <p className='abt_ttl ps2'>About team</p>
     <p className='team_cnt'>
-    Our team comprises skilled professionals including Soaham, Darshan, Aditya, and Rahul, bringing diverse expertise to ensure top-notch service delivery. With a shared passion for innovation and excellence, we collaborate seamlessly to fulfill our mission of providing unparalleled proof of first use services
+    Our team comprises skilled professionals including Darshan, Pratik, Gaurav, Rahul, bringing diverse expertise to ensure top-notch service delivery. With a shared passion for innovation and excellence, we collaborate seamlessly to fulfill our mission of providing unparalleled proof of first use services
     </p>
     </div>
     <p id='about_sec4'>
       <p id='cont_us_div'>
-        Contact Us : <span >soahampimparkar@gmail.com</span>
+        Contact Us : <span >darshanmahajan101@gmail.com</span>
       </p>
-      <a href="http://google.com">Feedback</a>
     </p>
     <ScrollRestoration/>
     </section>
