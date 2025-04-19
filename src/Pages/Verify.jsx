@@ -10,6 +10,8 @@ const Verify = () => {
   const [modalData, setModalData] = useState(null)
   const [valid, setValid] = useState(true);
   const [isverified, setIsVerified] = useState(false);
+  const [docid, setDocId] = useState("");
+  const [doctype, setDocType] = useState("");
   // let modalData;
   const validSubmit = async (event) => {
     event.preventDefault()
@@ -20,10 +22,10 @@ const Verify = () => {
       const data = res.data.record;
       setModalData(data)
       console.log("veridata", modalData)
-      
+      // setModal(true)
+
     }
     else {
-      console.log("***********Failure");
       setValid(false)
       setModal(false)
     }
@@ -42,21 +44,32 @@ const Verify = () => {
         <div id='verify_main_div'>
           <p id='verify_title'>Verify Document</p>
           <form action="" onSubmit={validSubmit}>
+          <div id='verify_id_div'>
+            <select
+              name="doctype"
+              value={doctype}
+              onChange={(e) => setDocType(e.target.value)}
+            >
+              <option value="" disabled>
+                Select Document Type
+              </option>
+              <option value="ip">IP</option>
+              <option value="will">WILL</option>
+            </select>
+          </div>
             <div id='verify_id_div'>
-              <input type="text" placeholder='Enter Document Type' name='doctype' />
-            </div>
-            <div id='verify_id_div'>
-              <input type="text" placeholder='Enter Document ID' name='docid' />
+              <input type="text" placeholder='Enter Document ID' name='docid' 
+              onChange={(e)=>setDocId(e.target.value)}/>
             </div>
             {
               !valid &&
               <p id='valid_verify'>
                 Enter Valid ID
               </p>
-
+ 
             }
             <div id='verify_sub_div'>
-              <button >
+              <button disabled={docid === "" || doctype === ""} >
                 Submit
               </button>
             </div>
