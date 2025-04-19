@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import '../Styles/User.css';
-import '../Styles/Modal.css'; // Ensure this exists
+import '../Styles/Modal.css';
 
 import userimg from '../assets/userSVG.svg';
 import crimg from '../assets/createImg.svg';
@@ -11,6 +13,8 @@ import closeimg from '../assets/closeSVG.svg';
 
 import PDFDownloadComponent from '../Components/WillPDF/PDFDownloadComponent.jsx';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const User = () => {
   const [showModal, setModal] = useState(false);
@@ -19,16 +23,20 @@ const User = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [user, setUser] = useState({});
   const [modalLoading, setModalLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // State for skeleton loading
   const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('/user/getuser')
       .then(res => {
         setUser(res.data);
+        setLoading(false); // Stop skeleton animation after data is fetched
       })
       .catch(() => {
-        alert('Please Login first');
-        navigate('/login');
+        toast.error('Please Login first'); // Show toast notification
+        setTimeout(() => {
+          navigate('/login'); // Redirect to login page after showing toast
+        }, 2000); // Delay for 2 seconds
       });
   }, [navigate]);
 
@@ -40,7 +48,7 @@ const User = () => {
       const res = await axios.get(`/user/read${item.type ? 'ip' : 'will'}?id=${item.documentId}`);
       setModalIPData(res.data.record);
     } catch (e) {
-      alert("Something went wrong");
+      toast.error("Something went wrong"); // Replace alert with toast
     }
     setModalLoading(false);
   };
@@ -65,51 +73,77 @@ const User = () => {
 
   return (
     <>
-      <section id='user_sec1'>
-        <div id='user_panel'>
-          <div id='user_detail_div'>
-            <div id='user_imgdiv'><img src={userimg} alt='' /></div>
-            <div id='user_details_div'>
-              <p id='username'>{user?.name}</p>
-              <p id='useremail'>{user?.email}</p>
-              <p id='userphone'>{user?.phone}</p>
+      <ToastContainer />
+      {loading ? ( // Show skeleton animation while loading
+        <section id='user_sec1'>
+          <div id='user_panel'>
+            <div id='user_detail_div'>
+              <div id='user_imgdiv'><Skeleton circle={true} height={100} width={100} /></div>
+              <div id='user_details_div'>
+                <p id='username'><Skeleton width={150} /></p>
+                <p id='useremail'><Skeleton width={200} /></p>
+                <p id='userphone'><Skeleton width={100} /></p>
+              </div>
+            </div>
+            <div id='user_work_div'>
+              <p id='r1'><Skeleton width={200} /></p>
+              <div id='r2'>
+                <div id='total_cnt'><Skeleton width={50} height={50} /></div>
+                <div id='ips'><Skeleton width={50} /></div>
+                <div id='wills'><Skeleton width={50} /></div>
+              </div>
             </div>
           </div>
-          <div id='user_work_div'>
-            <p id='r1'>POFU's created by you</p>
-            <div id='r2'>
-              <div id='total_cnt'>{totalIPs + totalWills}</div>
-              <div id='ips'>{totalIPs}<br />IP's</div>
-              <div id='wills'>{totalWills}<br />Will's</div>
+        </section>
+      ) : (
+        <div className="fade-in">
+          <section id='user_sec1'>
+            <div id='user_panel'>
+              <div id='user_detail_div'>
+                <div id='user_imgdiv'><img src={userimg} alt='' /></div>
+                <div id='user_details_div'>
+                  <p id='username'>{user?.name}</p>
+                  <p id='useremail'>{user?.email}</p>
+                  <p id='userphone'>{user?.phone}</p>
+                </div>
+              </div>
+              <div id='user_work_div'>
+                <p id='r1'>POFU's created by you</p>
+                <div id='r2'>
+                  <div id='total_cnt'>{totalIPs + totalWills}</div>
+                  <div id='ips'>{totalIPs}<br />IP's</div>
+                  <div id='wills'>{totalWills}<br />Will's</div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div id='creat_and_verify_div'>
-          <div className='aanv_div'>
-            <div className='aanv_imgdiv'><img src={crimg} alt='' /></div>
-            <div className='aanv_btndiv'><Link to='/create' className='aanv_btn'>Create Now</Link></div>
-          </div>
-          <div className='aanv_div'>
-            <div className='aanv_imgdiv'><img src={vrimg} alt='' /></div>
-            <div className='aanv_btndiv'><Link to='/verify' className='aanv_btn'>Verify Doc</Link></div>
-          </div>
-        </div>
-      </section>
+            <div id='creat_and_verify_div'>
+              <div className='aanv_div'>
+                <div className='aanv_imgdiv'><img src={crimg} alt='' /></div>
+                <div className='aanv_btndiv'><Link to='/create' className='aanv_btn'>Create Now</Link></div>
+              </div>
+              <div className='aanv_div'>
+                <div className='aanv_imgdiv'><img src={vrimg} alt='' /></div>
+                <div className='aanv_btndiv'><Link to='/verify' className='aanv_btn'>Verify Doc</Link></div>
+              </div>
+            </div>
+          </section>
 
-      <section id='user_sec2'>
-        <div id='user_sec2title'>Your PoFU's</div>
-        <div id='user_ips_div'>
-          {(totalIPs > 0 || totalWills > 0) ? (
-            <>
-              {user.userIP?.map((ip, idx) => renderPoFUCard(ip, null, `ip-${idx}`))}
-              {user.userWill?.map((will, idx) => renderPoFUCard(will, 'Will', `will-${idx}`))}
-            </>
-          ) : (
-            <div id='noip_div'>You Have No IP's</div>
-          )}
+          <section id='user_sec2'>
+            <div id='user_sec2title'>Your PoFU's</div>
+            <div id='user_ips_div'>
+              {(totalIPs > 0 || totalWills > 0) ? (
+                <>
+                  {user.userIP?.map((ip, idx) => renderPoFUCard(ip, null, `ip-${idx}`))}
+                  {user.userWill?.map((will, idx) => renderPoFUCard(will, 'Will', `will-${idx}`))}
+                </>
+              ) : (
+                <div id='noip_div'>You Have No IP's</div>
+              )}
+            </div>
+          </section>
         </div>
-      </section>
+      )}
 
       {showModal && (
         <section id="modal_sec">
@@ -129,7 +163,7 @@ const User = () => {
                 <div className="loader"></div>
               </div>
             ) : (
-              <>
+              <div className="fade-in">
                 {isVerified && <p className="isverified_div">Verified Document</p>}
                 {!isVerified && <p className="modal_title">{modalIPData?.title}</p>}
                 {!isVerified && <p className="modal_type">Type : <span className="modal_mntype">{modalData?.type}</span></p>}
@@ -165,7 +199,7 @@ const User = () => {
                     />
                   )}
                 </p>
-              </>
+              </div>
             )}
           </div>
         </section>

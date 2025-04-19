@@ -25,22 +25,25 @@ const Verify = () => {
     }
 
     setLoading(true);
-    const toastId = toast.info("Fetching details...", { autoClose: false });
+    toast.dismiss(); // Clear any existing toasts
+    const fetchingToast = toast.info("Fetching details...", { autoClose: false, toastId: `fetching-${Date.now()}` }); // Unique toastId
     try {
       const res = await axios.get(`/user/read${doctype}?id=${docid}`);
       if (res) {
         const data = res.data.record;
         setModalData(data);
+        toast.dismiss(fetchingToast); // Dismiss the fetching toast
         toast.success("Document verified successfully!");
         setModal(true);
       } else {
         setValid(false);
+        toast.dismiss(fetchingToast); // Dismiss the fetching toast
         toast.error("Invalid Document ID!");
       }
     } catch (error) {
+      toast.dismiss(fetchingToast); // Dismiss the fetching toast
       toast.error("An error occurred while verifying the document.");
     } finally {
-      toast.dismiss(toastId);
       setLoading(false);
     }
   };
@@ -48,7 +51,7 @@ const Verify = () => {
   const handleCloseModal = () => {
     setModal(false);
     setIsVerified(false);
-    setLoading(false);
+    setLoading(false); // Reset loading state when modal is closed
   };
 
   return (
