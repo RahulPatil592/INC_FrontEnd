@@ -77,6 +77,10 @@
     color: var(--color-secondary);
 }
 
+.pp2 {
+    text-align: justify;
+  }
+
 .team_cnt {
     font-size: 1vmax;
 }

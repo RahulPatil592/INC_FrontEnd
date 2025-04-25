@@ -7,6 +7,68 @@
     padding: 8vmax 1vmax 3vmax 1vmax;
 }
 
+/* Skeleton Loader */
+.loader_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color); /* Use project theme color */
+  }
+  
+  .loader {
+    border: 4px solid var(--secondary-color); /* Use project theme color */
+    border-radius: 50%;
+    border-top: 4px solid var(--primary-color); /* Use project theme color */
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Fade-in effect for content */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Modal Styling */
+  #modal_sec {
+    background-color: rgba(0, 0, 0, 0.8); /* Match project theme */
+    color: var(--text-color); /* Use project theme color */
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .mdbtn {
+    background-color: var(--primary-color); /* Use project theme color */
+    color: var(--text-color); /* Use project theme color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mdbtn:hover {
+    background-color: var(--secondary-color); /* Use project theme color */
+  }
+
 #user_panel{
     width: 60%;
     height: fit-content;

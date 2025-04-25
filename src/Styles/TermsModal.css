@@ -1,0 +1,53 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 2rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+  }
+  
+  .terms-body {
+    text-align: left;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  
+  .close-btn {
+    margin-top: 1rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  /* TermsModal.css */
+
+.terms-body ol li {
+    margin-bottom: 1rem; /* Adjust the spacing as needed */
+    line-height: 1.6;
+  }
+  .terms-body ol li {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+    
+  
