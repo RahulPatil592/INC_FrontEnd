@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
-import '../Styles/CreateIp.css';
-import uploadimg from '../assets/uploadSVG.svg';
-import DragAndDrop from '../Components/DragAndDrop/DragAndDrop';
-import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import "../Styles/CreateIp.css";
+import uploadimg from "../assets/uploadSVG.svg";
+import DragAndDrop from "../Components/DragAndDrop/DragAndDrop";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateIP = () => {
   const [selectedfile, SetSelectedFile] = useState([]);
-  const [digsign, setDigSign] = useState('');
+  const [digsign, setDigSign] = useState("");
+  const [ocrText, setOcrText] = useState(''); // ⬅️ For showing extracted text
+
+  const handleDigitalSignChange = async (e) => {
+    const file = e.target.files[0];
+    setDigSign(file?.name || '');
+
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('document', file);
+
+    try {
+      const response = await axios.post('http://localhost:8000/ocr/ocr', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+      setOcrText(response.data.text);
+      toast.success("OCR completed successfully!");
+    } catch (err) {
+      console.error("OCR error:", err);
+      toast.error("Failed to extract text from the signature.");
+    }
+  };
 
   const validateField = (name, value) => {
-    if (!value || value.trim() === '') return `${name} is required.`;
+    if (!value || value.trim() === "") return `${name} is required.`;
 
     if (name.includes("Aadhar") && !/^\d{12}$/.test(value)) {
       return `${name} must be a 12-digit number.`;
@@ -21,7 +44,13 @@ const CreateIP = () => {
       return `${name} must be a 10-digit number starting with 6-9.`;
     }
 
-    if (name.includes("External Link") && value && !/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/.test(value)) {
+    if (
+      name.includes("External Link") &&
+      value &&
+      !/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/.test(
+        value
+      )
+    ) {
       return `${name} must be a valid URL.`;
     }
 
@@ -30,13 +59,13 @@ const CreateIP = () => {
 
   const validateForm = (form) => {
     const validations = [
-      { name: 'Owner Name', value: form.newOwnerName?.value },
-      { name: 'Owner Aadhar', value: form.newOwnerProofIdentifier?.value },
-      { name: 'Owner Phone', value: form.newOwnerPhone?.value },
-      { name: 'Title', value: form.newTitle?.value },
-      { name: 'IP Type', value: form.newIpType?.value },
-      { name: 'Description', value: form.newDescription?.value },
-      { name: 'External Link', value: form.stnewLinks?.value },
+      { name: "Owner Name", value: form.newOwnerName?.value },
+      { name: "Owner Aadhar", value: form.newOwnerProofIdentifier?.value },
+      { name: "Owner Phone", value: form.newOwnerPhone?.value },
+      { name: "Title", value: form.newTitle?.value },
+      { name: "IP Type", value: form.newIpType?.value },
+      { name: "Description", value: form.newDescription?.value },
+      { name: "External Link", value: form.stnewLinks?.value },
     ];
 
     for (let field of validations) {
@@ -65,11 +94,14 @@ const CreateIP = () => {
 
     const itemFormData = new FormData();
 
-    itemFormData.append('docs', form.newOwnerDigitalSign?.files[0] || null);
-    selectedfile.forEach(file => itemFormData.append('docs', file));
+    itemFormData.append("docs", form.newOwnerDigitalSign?.files[0] || null);
+    selectedfile.forEach((file) => itemFormData.append("docs", file));
 
     itemFormData.append("newOwnerName", form.newOwnerName?.value || "");
-    itemFormData.append("newOwnerProofIdentifier", form.newOwnerProofIdentifier?.value || "");
+    itemFormData.append(
+      "newOwnerProofIdentifier",
+      form.newOwnerProofIdentifier?.value || ""
+    );
     itemFormData.append("newOwnerPhone", form.newOwnerPhone?.value || "");
     itemFormData.append("newTitle", form.newTitle?.value || "");
     itemFormData.append("newIpType", form.newIpType?.value || "");
@@ -80,11 +112,11 @@ const CreateIP = () => {
     itemFormData.append("newExtraInfo", form.newExtrainfo?.value || "");
 
     const config = {
-      headers: { 'Content-Type': "multipart/form-data" },
+      headers: { "Content-Type": "multipart/form-data" },
     };
 
     try {
-      await axios.post('/user/upload', itemFormData, config);
+      await axios.post("/user/upload", itemFormData, config);
       toast.update(toastId, {
         render: "Item added successfully!",
         type: "success",
@@ -94,7 +126,7 @@ const CreateIP = () => {
 
       form.reset();
       SetSelectedFile([]);
-      setDigSign('');
+      setDigSign("");
     } catch (err) {
       const errorMessage =
         err.response?.data?.message || "Error occurred while uploading.";
@@ -120,16 +152,27 @@ const CreateIP = () => {
               <input type="text" name="newOwnerName" placeholder="Name" />
             </div>
             <div className="inps inp1">
-              {digsign.length > 0 ? `${digsign.slice(0, 30)} ...` : "Upload Digital Sign"}
+              {digsign.length > 0
+                ? `${digsign.slice(0, 30)} ...`
+                : "Upload Digital Sign"}
               <input
                 type="file"
                 name="newOwnerDigitalSign"
-                onChange={(e) => setDigSign(e.target.value)}
+                onChange={handleDigitalSignChange} // ⬅️ update handler
               />
               <img src={uploadimg} alt="upload" />
             </div>
+            {ocrText && (
+              <p style={{ marginTop: "8px", color: "#2e7d32" }}>
+                <strong>Extracted Text:</strong> {ocrText}
+              </p>
+            )}
             <div className="inps">
-              <input type="text" name="newOwnerProofIdentifier" placeholder="Aadhar no." />
+              <input
+                type="text"
+                name="newOwnerProofIdentifier"
+                placeholder="Aadhar no."
+              />
             </div>
             <div className="inps">
               <input type="text" name="newOwnerPhone" placeholder="Phone no." />
@@ -153,15 +196,26 @@ const CreateIP = () => {
                 <textarea name="newDescription" placeholder="Description" />
               </div>
             </div>
-            <DragAndDrop selectedfile={selectedfile} SetSelectedFile={SetSelectedFile} />
+            <DragAndDrop
+              selectedfile={selectedfile}
+              SetSelectedFile={SetSelectedFile}
+            />
             <div id="ip_det_cr4">
               <div className="inps">
-                <input type="text" name="stnewLinks" placeholder="External Link" />
+                <input
+                  type="text"
+                  name="stnewLinks"
+                  placeholder="External Link"
+                />
               </div>
             </div>
             <div id="ip_det_cr5">
               <div className="inps">
-                <input type="text" name="newExtrainfo" placeholder="Additional Information" />
+                <input
+                  type="text"
+                  name="newExtrainfo"
+                  placeholder="Additional Information"
+                />
               </div>
             </div>
           </div>
@@ -169,7 +223,8 @@ const CreateIP = () => {
 
         <p id="agree_chk_div">
           <input type="checkbox" name="termsChecked" />
-          &nbsp;I acknowledge that I own the rights to the submitted document and agree to the{" "}
+          &nbsp;I acknowledge that I own the rights to the submitted document
+          and agree to the{" "}
           <a href="https://www.w3schools.com" id="tc_text">
             terms and conditions.
           </a>
