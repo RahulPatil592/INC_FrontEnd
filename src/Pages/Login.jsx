@@ -1,56 +1,42 @@
-import React from 'react'
-import '../Styles/Login.css'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import {  useNavigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import '../Styles/Login.css';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { UserContext } from '../Contexts/UserContext';
+
 const Login = () => {
+  const { setUserLoggedIn } = useContext(UserContext);
+  const navigate = useNavigate();
 
-
-  const nevigate = useNavigate();
   const onSubmit = async (e) => {
-   
-   e.preventDefault();
-    let data={
-          email:e.target.email.value,
-          password:e.target.password.value
+    e.preventDefault();
+    let data = {
+      email: e.target.email.value,
+      password: e.target.password.value
     };
-   
+
     let axiosConfig = {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
         "Access-Control-Allow-Origin": "*",
       }
     };
-   
 
-    let status = 200;
-
-    axios
-      .post("/user/login", data , axiosConfig)
-      .then((dat) => {
-          console.log(dat)
-        
-      })
-      .catch((err) => {
-        
-        status = err.response.status;
-      });
-
-    if (status === 200) {
-      // dont know where to nevigate user after login 
-      nevigate("/");
-    } else {
-      alert("register first");
-      // check the router part 
-      nevigate("/register");
+    try {
+      const response = await axios.post("/user/login", data, axiosConfig);
+      console.log(response.data);
+      setUserLoggedIn(true); // Update the global login state
+      navigate("/"); // Navigate to the home page after login
+    } catch (err) {
+      console.error(err);
+      alert("Login failed. Please check your credentials.");
     }
+
     e.target.reset();
   };
 
-
   return (
     <section id='login_section'>
-
       <div id='login_form'>
         <form action='' onSubmit={onSubmit}>
           <p id='form_title'>Sign In</p>
@@ -69,13 +55,6 @@ const Login = () => {
               <Link to='/signup' className='sgnlink'>Sign Up</Link>
             </p>
           </div>
-          {/* OR
-          <div className='inpts btn2'>
-            <button>
-              <img src={gglimg} alt="" />
-              Sign In with Google
-            </button>
-          </div> */}
         </form>
       </div>
       <div id='login_imgdiv'>
@@ -83,7 +62,7 @@ const Login = () => {
         <div>UnchainedIP</div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
